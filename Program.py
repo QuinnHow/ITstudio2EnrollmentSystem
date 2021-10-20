@@ -19,10 +19,10 @@ def remove_elective(self,course):
     if self.elective[course]:
         self.elective = self.elective.pop(course)
 
-def __str__(self):
-    print('Program code:',(self.code))
-    print('Credit points:',(self.creditPoints))
+##def __str__(self):
+    ##print('Program code:',(self.code))
+    ##print('Credit points:',(self.creditPoints))
     ## we want the corse code to be printed???????
     ## dose this use the strmethod from course????
-    print('Core courses:',(self.core))
-    print('Elective courses:',(self.elective))
+    ##print('Core courses:',(self.core))
+    ##print('Elective courses:',(self.elective))

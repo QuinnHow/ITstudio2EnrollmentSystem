@@ -23,14 +23,14 @@ for row in courseReader:
 
  
 
-programFile = open('program.csv')
-programReader = csv.reader(programFile, delimiter=' ')
-for row in programReader:
-    print(row)
-    program = Program(row[0], row[1], row[2], row[3])
+##programFile = open('program.csv')
+##programReader = csv.reader(programFile, delimiter=' ')
+##for row in programReader:
+  ##  print(row)
+  ##  program = Program(row[0], row[1], row[2], row[3])
     
-    programs.append(program)
-    print(program)
+   ## programs.append(program)
+  ##  print(program)
 
 
 
@@ -38,7 +38,7 @@ semesterFile = open('semester.csv')
 semesterReader = csv.reader(semesterFile, delimiter=' ')
 for row in semesterReader:
     print(row)
-    semester = Semester(row[0], row[1], row[2])
+    semester = Semester(row[0], row[1])
     
     semesters.append(semester)
     print(semester)
