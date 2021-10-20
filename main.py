@@ -60,6 +60,8 @@ while finish:
     inp = input('What would you like to do?\n')
     # a way to exit the program
     if inp.lower() == 'quit': break
-    #put the different calls here e.g navigating through the menu... 
+    #put the different calls here e.g navigating through the menu...
+    #if inp.lower() == 'student':
+        #studentMenu(courses,programs,semesters,students)
 ## save all files or save files when finished editing them?
 print ('exiting program') 
