@@ -2,29 +2,32 @@ import Student
 import Program
 import Course
 import Semester
-
-## Add/Remove/Amendastudent(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., program, semester offerings.)
-
-
-## Add/Remove/Amendacourse(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g.,semester offerings.)
+## login Peter
+    
+## Add/Remove/Amendastudent(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., program, semester offerings.)James
 
 
-## Add/Remove/Amendaprogram(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students.)
+## Add/Remove/Amendacourse(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g.,semester offerings.)James
 
 
-## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)
+## Add/Remove/Amendaprogram(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students.)James
 
 
-## Query student information including academic history and current enrolment
+## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)James
 
 
-## Allow manual amendment of the study plan for a student
+## Query student information including academic history and current enrolment Quinn
 
 
-## Validate a students study plan
+## Allow manual amendment of the study plan for a student Sai
 
 
-## generate a student plan for a student of minimum length
+## Validate a students study plan Sai
 
 
-## for a particular course offering display a sorted list of students
+## generate a student plan for a student of minimum length Sai
+
+
+## for a particular course offering display a sorted list of students Sai
+
+## Exit Peter

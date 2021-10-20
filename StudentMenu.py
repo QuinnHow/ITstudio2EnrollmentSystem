@@ -1,4 +1,5 @@
 def studentMenu (courses,programs,semesters,students):
+   
     finish = True
     while finish:
         inp = input('welcome to the student menu, What would you like to do?\n')
@@ -11,14 +12,16 @@ def studentMenu (courses,programs,semesters,students):
     import Course
     import Semester
 
+    ## login Peter
+    
 
-    ## Display academic history and current enrolment
-
-
-    ## Querying course or program information
-
-
-    ## Enrol/UnEnrol in a current offering (You will need to consider the pre-req and the impact of an enrollment.)
+    ## Display academic history and current enrolment Quinn
 
 
-    ## Exit
+    ## Querying course or program information Quinn 
+
+
+    ## Enrol/UnEnrol in a current offering (You will need to consider the pre-req and the impact of an enrollment.) Quinn 
+
+
+    ## Exit Peter
