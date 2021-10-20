@@ -14,3 +14,10 @@ import Semester
 
 
 ## Exit
+finish = True
+while finish:
+    inp = input('welcome to the student menu, What would you like to do?\n')
+    ## returning to the base menu 
+    if inp.lower() == 'exit': break
+
+print ('returning to main meu') 
