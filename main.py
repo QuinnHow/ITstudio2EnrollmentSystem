@@ -6,6 +6,11 @@ from Semester import Semester
 from Student import Student
 
 courses = []
+programs = []
+semesters = []
+students = []
+
+
 
 courseFile = open('course.csv')
 courseReader = csv.reader(courseFile, delimiter=' ')
@@ -20,12 +25,35 @@ for row in courseReader:
 
 programFile = open('program.csv')
 programReader = csv.reader(programFile, delimiter=' ')
+for row in programReader:
+    print(row)
+    program = Program(row[0], row[1], row[2], row[3])
+    
+    programs.append(program)
+    print(program)
+
+
 
 semesterFile = open('semester.csv')
 semesterReader = csv.reader(semesterFile, delimiter=' ')
+for row in semesterReader:
+    print(row)
+    semester = Semester(row[0], row[1], row[2])
+    
+    semesters.append(semester)
+    print(semester)
+
 
 studentFile = open('student.csv')
 studentReader = csv.reader(studentFile, delimiter=' ')
+for row in studentReader:
+    print(row)
+    student = Student(row[0], row[1], row[2], row[3], row[4], row[5], row[6] )
+    
+    students.append(student)
+    print(student)
+
+
 
 finish = True
 while finish:
