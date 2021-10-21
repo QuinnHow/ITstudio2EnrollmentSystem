@@ -4,6 +4,7 @@ from Course import Course
 from Program import Program
 from Semester import Semester
 from Student import Student
+from StudentMenu import studentMenu
 
 courses = []
 programs = []
@@ -61,7 +62,7 @@ while finish:
     # a way to exit the program
     if inp.lower() == 'quit': break
     #put the different calls here e.g navigating through the menu...
-    #if inp.lower() == 'student':-
-        #studentMenu(courses,programs,semesters,students)
+    if inp.lower() == 'student':
+        studentMenu(courses,programs,semesters,students)
 ## save all files or save files when finished editing them?
 print ('exiting program') 

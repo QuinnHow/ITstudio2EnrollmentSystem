@@ -7,10 +7,10 @@ def studentMenu (courses,programs,semesters,students):
         if inp.lower() == 'exit': break
 
     print ('returning to main meu') 
-    import Student
-    import Program
-    import Course
-    import Semester
+    #import Student
+    #import Program
+    #import Course
+    #import Semester
 
     ## login Peter
     
