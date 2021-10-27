@@ -1,8 +1,8 @@
 def studentMenu (courses,programs,semesters,students):
-    ## needs to be after the function deffinitions
+   
     
 
-    print ('returning to main meu') 
+    
     #import Student
     #import Program
     #import Course
@@ -30,20 +30,34 @@ def studentMenu (courses,programs,semesters,students):
 
 
     ## Exit Peter
+    def help():
+        print('If you would like to\n\nAccess your accedemic history - enter academic history\nCheck your course or program information - enter course or program information\nEnrol - enter enrol\n Un enrol - enter un enrol\nReturn to the main menu - enter exit')
 
     success = login(students)
     if success:
         finish = True
-    else :finish = False
+        print('\nwelcome to the student menu\n')
+        help()  
+    else :
+        ## change back to false when passwords are implimented as this True is just so we can test the other functions
+        finish = True
+        ## remove the print and help call when passwords have been implemented as they are there for testingstud
+        print('welcome to the student menu\n')
+        help()  
+        #################
+        print('incorrect details')
+    
     while finish:
-        inp = input('welcome to the student menu, What would you like to do?\n')
+        inp = input()
         ## returning to the base menu 
+        if inp.lower() == 'help': help()
         if inp.lower() == 'exit': break
         if inp.lower() == 'academic history':
             pass #acc hsit function 
         if inp.lower() == 'course or program information':
             pass #course or program information function
-        if inp.lower() == 'Enrol':
+        if inp.lower() == 'enrol':
             pass #Enrol function
-        if inp.lower() == 'Un enrol':
+        if inp.lower() == 'un enrol':
             pass #Un enrol function
+    print ('returning to main meu') 
