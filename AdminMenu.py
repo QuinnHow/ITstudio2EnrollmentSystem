@@ -43,7 +43,7 @@ def adminmenu(courses,programs,semesters,students):
                 if pword == i.pword:
                     return True
         return False
-
+    ## 3 seperate things for add remove ammend ... 
     def helpadmin():
         print('If you would like to\n\nAdd/Remove/Amendastudent - enter arast (the student)\nAdd/Remove/Amendacourse - enter arac (the course)\nAdd/Remove/Amendaprogram - enter arap (the program)\nAdd/Remove/Amendasemester - enter arase (the semester)\nQuery student information including academic history and current enrolment - enter query (the student)\nAllow manual amendment of the study plan for a student - enter ama(the student)\nValidate a students study plan - validate (the student)\nGenerate a student plan for a student of minimum length - enter generate study (the student)\nFor a particular course offering display a sorted list of students - enter display students (specific course offering)\nReturn to the main menu - enter exit')
 
