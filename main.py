@@ -5,13 +5,14 @@ from Course import Course
 from Program import Program
 from Semester import Semester
 from Student import Student
+from password import Password
 from StudentMenu import studentMenu
 
 courses = []
 programs = []
 semesters = []
 students = []
-
+passwords =[]
 
 
 courseFile = open('course.csv')
@@ -23,7 +24,9 @@ for row in courseReader:
     courses.append(course)
     print(course)
 
- 
+
+
+
 
 programFile = open('program.csv')
 programReader = csv.reader(programFile, delimiter=' ')
@@ -50,10 +53,29 @@ studentFile = open('student.csv')
 studentReader = csv.reader(studentFile, delimiter=' ')
 for row in studentReader:
     print(row)
-    student = Student(row[0], row[1], row[2], row[3], row[4], row[5], row[6] )
+    student = Student(row[0],row[1],row[2],row[3],row[4],row[5],row[6])
     
     students.append(student)
     print(student)
+
+
+passwordFile = open('passwords.csv')
+passwordReader = csv.reader(passwordFile, delimiter=' ')
+for row in passwordReader:
+    print('---------------------------------------',row)
+    password = Password(row[0], row[1], row[2])
+    
+    passwords.append(password)
+    print(password)
+
+for i in courses:
+    if i.getCourse('cosc2411') is True:
+        print(i.code)
+
+Student.getStudent('s3653411')
+
+
+
 
 def helpmain():
     print('If you would like to\nAccess the student menu - enter student\nAccess the admin menu - enter admin\nExit the program - enter quit')

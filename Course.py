@@ -2,6 +2,7 @@ import csv
 
 
 class Course:
+    
     def __init__(self,code,title,credit,preReq = [] ,avalSem = []):
         self.code = code
         self.title = title
@@ -15,6 +16,9 @@ class Course:
         return statment 
 
 
-    def getCourse(code):
-        course = Course.code == code
-        return course
+    def getCourse(self,code):
+        if self.code == code:
+            return True
+        else:
+            return False
+        
