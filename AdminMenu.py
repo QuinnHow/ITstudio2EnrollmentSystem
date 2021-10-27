@@ -6,16 +6,45 @@ def adminmenu(courses,programs,semesters,students):
 ## login Peter
     
 ## Add/Remove/Amendastudent(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., program, semester offerings.)James
+    def addStudent(student):
+        pass
 
+    def removeStudent(student):
+        ## remove student from row, remove student from program, drop student in course offering,
+        pass
+
+    def amendStudent(student):
+        pass
 
 ## Add/Remove/Amendacourse(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g.,semester offerings.)James
+    def addCourse(course):
+        pass
 
+    def removeCourse(course):
+        pass
+
+    def amendCourse(course):
+        pass
 
 ## Add/Remove/Amendaprogram(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students.)James
+    def addProgram(program):
+        pass
 
+    def removeProgram(program):
+        pass
+
+    def amendProgram(program):
+        pass
 
 ## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)James
+    def addSemester(semester):
+        pass
 
+    def removeSemester(semester):
+        pass
+
+    def amendSemester(semester):
+        pass
 
 ## Query student information including academic history and current enrolment Quinn
 
@@ -43,7 +72,7 @@ def adminmenu(courses,programs,semesters,students):
                 if pword == i.pword:
                     return True
         return False
-
+    ## 3 seperate things for add remove ammend ... 
     def helpadmin():
         print('If you would like to\n\nAdd/Remove/Amendastudent - enter arast (the student)\nAdd/Remove/Amendacourse - enter arac (the course)\nAdd/Remove/Amendaprogram - enter arap (the program)\nAdd/Remove/Amendasemester - enter arase (the semester)\nQuery student information including academic history and current enrolment - enter query (the student)\nAllow manual amendment of the study plan for a student - enter ama(the student)\nValidate a students study plan - validate (the student)\nGenerate a student plan for a student of minimum length - enter generate study (the student)\nFor a particular course offering display a sorted list of students - enter display students (specific course offering)\nReturn to the main menu - enter exit')
 
@@ -52,7 +81,7 @@ def adminmenu(courses,programs,semesters,students):
         finish = True
         print('\nwelcome to the admin menu\n')
         helpadmin()  
-    else :
+    else:
         ## change back to false when passwords are implimented as this True is just so we can test the other functions
         finish = True
         ## remove the print and help call when passwords have been implemented as they are there for testingstud
