@@ -10,7 +10,10 @@ class Semester:
 
 
     def add_cOffer(self, cOffer):
-        self.cOfferings = self.cOfferings.append(cOffer)
+        if self.cOfferings[1] == self.cOfferings[2]:
+            print('Max students reached!')
+        else:
+            self.cOfferings = self.cOfferings.append(cOffer)
 
     def remove_cOffer(self,cOffer):
         if self.cOfferings[cOffer]:
