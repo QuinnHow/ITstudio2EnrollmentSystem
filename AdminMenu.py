@@ -10,6 +10,7 @@ def adminmenu(courses,programs,semesters,students):
         pass
 
     def removeStudent(student):
+        ## remove student from row, remove student from program, drop student in course offering,
         pass
 
     def amendStudent(student):
