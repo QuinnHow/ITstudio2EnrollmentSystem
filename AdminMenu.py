@@ -6,16 +6,44 @@ def adminmenu(courses,programs,semesters,students):
 ## login Peter
     
 ## Add/Remove/Amendastudent(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., program, semester offerings.)James
+    def addStudent(student):
+        pass
 
+    def removeStudent(student):
+        pass
+
+    def amendStudent(student):
+        pass
 
 ## Add/Remove/Amendacourse(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g.,semester offerings.)James
+    def addCourse(course):
+        pass
 
+    def removeCourse(course):
+        pass
+
+    def amendCourse(course):
+        pass
 
 ## Add/Remove/Amendaprogram(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students.)James
+    def addProgram(program):
+        pass
 
+    def removeProgram(program):
+        pass
+
+    def amendProgram(program):
+        pass
 
 ## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)James
+    def addSemester(semester):
+        pass
 
+    def removeSemester(semester):
+        pass
+
+    def amendSemester(semester):
+        pass
 
 ## Query student information including academic history and current enrolment Quinn
 
@@ -52,7 +80,7 @@ def adminmenu(courses,programs,semesters,students):
         finish = True
         print('\nwelcome to the admin menu\n')
         helpadmin()  
-    else :
+    else:
         ## change back to false when passwords are implimented as this True is just so we can test the other functions
         finish = True
         ## remove the print and help call when passwords have been implemented as they are there for testingstud
