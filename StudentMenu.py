@@ -3,7 +3,7 @@ def studentMenu (courses,programs,semesters,students):
     
 
     
-    #import Student
+    import Student
     #import Program
     #import Course
     #import Semester
@@ -21,8 +21,10 @@ def studentMenu (courses,programs,semesters,students):
         return False
 
     ## Display academic history and current enrolment Quinn
-
-
+    
+    def acSearch(ID):
+        student = Student.getStudent(ID) 
+        print(student.__str__)
     ## Querying course or program information Quinn 
 
 

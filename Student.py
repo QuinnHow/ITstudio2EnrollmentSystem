@@ -19,6 +19,7 @@ class Student:
     def getStudent(ID):
         student = Student.studentID == ID
         return student
+        
     def setStudent( self, name, studentID, dob, programCode, accedemicHist = [], studyPlan = [], curEnoll = [] ):
         self.name = name 
         self.studentID = studentID
