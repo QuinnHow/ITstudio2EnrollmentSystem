@@ -1,21 +1,6 @@
 def studentMenu (courses,programs,semesters,students):
     ## needs to be after the function deffinitions
-    success = login(students)
-    if success:
-        finish = True
-    else :finish = False
-    while finish:
-        inp = input('welcome to the student menu, What would you like to do?\n')
-        ## returning to the base menu 
-        if inp.lower() == 'exit': break
-        if inp.lower() == 'academic history':
-            pass #acc hsit function 
-        if inp.lower() == 'course or program information':
-            pass #course or program information function
-        if inp.lower() == 'Enrol':
-            pass #Enrol function
-        if inp.lower() == 'Un enrol':
-            pass #Un enrol function
+    
 
     print ('returning to main meu') 
     #import Student
@@ -45,3 +30,20 @@ def studentMenu (courses,programs,semesters,students):
 
 
     ## Exit Peter
+
+    success = login(students)
+    if success:
+        finish = True
+    else :finish = False
+    while finish:
+        inp = input('welcome to the student menu, What would you like to do?\n')
+        ## returning to the base menu 
+        if inp.lower() == 'exit': break
+        if inp.lower() == 'academic history':
+            pass #acc hsit function 
+        if inp.lower() == 'course or program information':
+            pass #course or program information function
+        if inp.lower() == 'Enrol':
+            pass #Enrol function
+        if inp.lower() == 'Un enrol':
+            pass #Un enrol function
