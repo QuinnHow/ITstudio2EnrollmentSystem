@@ -1,6 +1,6 @@
 class Student:
 
-    def __init__(self, name, studentID, dob, programCode, accedemicHist = [], studyPlan = [], curEnoll = [] ):
+    def __init__(self, name ='Wrong', studentID ='Wrong', dob='Wrong', programCode='Wrong', accedemicHist = [], studyPlan = [], curEnoll = [] ):
         self.name = name 
         self.studentID = studentID
         self.dob = dob
