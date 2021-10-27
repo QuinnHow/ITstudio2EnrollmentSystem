@@ -30,14 +30,14 @@ def studentMenu (courses,programs,semesters,students):
 
 
     ## Exit Peter
-    def help():
+    def helpstudent():
         print('If you would like to\n\nAccess your accedemic history - enter academic history\nCheck your course or program information - enter course or program information\nEnrol - enter enrol\n Un enrol - enter un enrol\nReturn to the main menu - enter exit')
 
     success = login(students)
     if success:
         finish = True
         print('\nwelcome to the student menu\n')
-        help()  
+        helpstudent()  
     else :
         ## change back to false when passwords are implimented as this True is just so we can test the other functions
         finish = True
@@ -50,7 +50,7 @@ def studentMenu (courses,programs,semesters,students):
     while finish:
         inp = input()
         ## returning to the base menu 
-        if inp.lower() == 'help': help()
+        if inp.lower() == 'help': helpstudent()
         if inp.lower() == 'exit': break
         if inp.lower() == 'academic history':
             pass #acc hsit function 
@@ -60,4 +60,5 @@ def studentMenu (courses,programs,semesters,students):
             pass #Enrol function
         if inp.lower() == 'un enrol':
             pass #Un enrol function
+        else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 
