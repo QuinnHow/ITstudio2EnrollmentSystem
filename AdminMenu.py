@@ -1,3 +1,5 @@
+import csv
+
 def adminmenu(courses,programs,semesters,students):
 ##import Student
 ##import Program
@@ -11,7 +13,20 @@ def adminmenu(courses,programs,semesters,students):
 
     def removeStudent(student):
         ## remove student from row, remove student from program, drop student in course offering,
-        pass
+        ## remove student from student.csv
+        lines = []
+        with open('Student.csv', 'r') as readFile:
+            reader = csv.reader(readFile)
+            for row in reader:
+                lines.append(row)
+                for field in row:
+                    if field == student:
+                        lines.remove(row)
+
+        with open('Student.csv', 'w') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lines) 
+    
 
     def amendStudent(student):
         pass
