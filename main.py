@@ -8,6 +8,16 @@ from Student import Student
 from password import Password
 from StudentMenu import studentMenu
 
+
+
+
+
+
+
+
+
+
+
 courses = []
 programs = []
 semesters = []
@@ -53,10 +63,19 @@ studentFile = open('student.csv')
 studentReader = csv.reader(studentFile, delimiter=' ')
 for row in studentReader:
     print(row)
-    student = Student(row[0],row[1],row[2],row[3],row[4],row[5],row[6])
+    student = Student(row[0],row[1],row[2],row[3],row[4].split(),row[5],row[6])
     
     students.append(student)
     print(student)
+
+
+
+
+
+
+
+
+
 
 
 passwordFile = open('passwords.csv')
@@ -72,6 +91,13 @@ for i in courses:
     if i.getCourse('cosc2411') is True:
         print(i.code)
 
+
+def stuSearch(ID):
+    for i in students:
+        if i.studentID == ID:
+            return i
+        else:
+            return None
 #Student.getStudent('s3653411')
 
 

@@ -1,6 +1,6 @@
 class Student:
 
-    def __init__(self, name ='Wrong', studentID ='Wrong', dob='Wrong', programCode='Wrong', accedemicHist = [], studyPlan = [], curEnoll = [] ):
+    def __init__(self, name ='Wrong', studentID ='Wrong', dob='Wrong', programCode='Wrong', accedemicHist = [()], studyPlan = [], curEnoll = [] ):
         self.name = name 
         self.studentID = studentID
         self.dob = dob
@@ -13,14 +13,15 @@ class Student:
     
     
     def __str__(self):
-        statment = self.name + self.studentID + self.dob + self.programCode + self.accedemicHist + self.studyPlan + self.curEnoll
+        statment = self.name + self.studentID + self.dob + self.programCode + self.studyPlan + self.curEnoll
+        for i in self.accedemicHist:
+            statment += i
         return statment
 
     def getStudent(ID):
-        student = Student.studentID == ID
-        return student
+        pass
         
-    def setStudent( self, name, studentID, dob, programCode, accedemicHist = [], studyPlan = [], curEnoll = [] ):
+    def setStudent( self, name, studentID, dob, programCode, accedemicHist = [()], studyPlan = [], curEnoll = [] ):
         self.name = name 
         self.studentID = studentID
         self.dob = dob
