@@ -92,7 +92,7 @@ while finish:
     elif inp.lower() == 'student':
         studentMenu(courses,programs,semesters,students,passwords)
     elif inp.lower() == 'admin':
-        adminmenu(courses,programs,semesters,students)
+        adminmenu(courses,programs,semesters,students,passwords)
     elif inp.lower() == 'help': helpmain()
 
     else: print('Imput error try again\nTry entering help to see the comands')
