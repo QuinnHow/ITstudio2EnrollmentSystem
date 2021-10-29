@@ -9,13 +9,14 @@ def adminmenu(courses,programs,semesters,students):
     
 ## Add/Remove/Amendastudent(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., program, semester offerings.)James
     def addStudent(student):
-        pass
+        with open('student.csv', 'w') as writeFile:
+            writeFile.write(student)
 
     def removeStudent(student):
         ## remove student from row, remove student from program, drop student in course offering,
         ## remove student from student.csv
         lines = []
-        with open('Student.csv', 'r') as readFile:
+        with open('student.csv', 'r') as readFile:
             reader = csv.reader(readFile)
             for row in reader:
                 lines.append(row)
@@ -23,7 +24,7 @@ def adminmenu(courses,programs,semesters,students):
                     if field == student:
                         lines.remove(row)
 
-        with open('Student.csv', 'w') as writeFile:
+        with open('student.csv', 'w') as writeFile:
             writer = csv.writer(writeFile)
             writer.writerows(lines) 
     
@@ -33,30 +34,69 @@ def adminmenu(courses,programs,semesters,students):
 
 ## Add/Remove/Amendacourse(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g.,semester offerings.)James
     def addCourse(course):
-        pass
+        with open('course.csv', 'w') as writeFile:
+            writeFile.write(course)
 
     def removeCourse(course):
-        pass
+        ## remove course from course.csv
+        lines = []
+        with open('course.csv', 'r') as readFile:
+            reader = csv.reader(readFile)
+            for row in reader:
+                lines.append(row)
+                for field in row:
+                    if field == course:
+                        lines.remove(row)
+
+        with open('course.csv', 'w') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lines)
 
     def amendCourse(course):
         pass
 
 ## Add/Remove/Amendaprogram(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students.)James
     def addProgram(program):
-        pass
+        with open('program.csv', 'w') as writeFile:
+            writeFile.write(program)
 
     def removeProgram(program):
-        pass
+        ## remove program from program.csv
+        lines = []
+        with open('program.csv', 'r') as readFile:
+            reader = csv.reader(readFile)
+            for row in reader:
+                lines.append(row)
+                for field in row:
+                    if field == program:
+                        lines.remove(row)
+
+        with open('program.csv', 'w') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lines)
 
     def amendProgram(program):
         pass
 
 ## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)James
     def addSemester(semester):
-        pass
+        with open('semester.csv', 'w') as writeFile:
+            writeFile.write(semester)
 
     def removeSemester(semester):
-        pass
+        ## remove program from semester.csv
+        lines = []
+        with open('semester.csv', 'r') as readFile:
+            reader = csv.reader(readFile)
+            for row in reader:
+                lines.append(row)
+                for field in row:
+                    if field == semester:
+                        lines.remove(row)
+
+        with open('semester.csv', 'w') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lines)
 
     def amendSemester(semester):
         pass
@@ -77,14 +117,14 @@ def adminmenu(courses,programs,semesters,students):
 
 ## Exit Peter
  ######################33 need to change to admin passwords when pasword section is added
-    def login(students):
+    def login(passwords):
         print('Please sign in')
-        studentnum = input('Enter your student number\n')
+        username = input('Enter your student number\n')
         pword = input('Enter your password\n')
-        for i in students:
-            if i.studentID == studentnum:
+        for i in passwords:
+            if i.admin == '1' and i.username == username:
                 ### we need a pasword for each student!!!!!!!!!!!
-                if pword == i.pword:
+                if pword == i.password:
                     return True
         return False
     ## 3 seperate things for add remove ammend ... 
@@ -98,10 +138,10 @@ def adminmenu(courses,programs,semesters,students):
         helpadmin()  
     else:
         ## change back to false when passwords are implimented as this True is just so we can test the other functions
-        finish = True
+        finish = False
         ## remove the print and help call when passwords have been implemented as they are there for testingstud
-        print('welcome to the student menu\n')
-        help()  
+        
+        
         #################
         print('incorrect details')
     
