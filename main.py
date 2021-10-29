@@ -72,7 +72,7 @@ for i in courses:
     if i.getCourse('cosc2411') is True:
         print(i.code)
 
-Student.getStudent('s3653411')
+#Student.getStudent('s3653411')
 
 
 
@@ -89,11 +89,12 @@ while finish:
     # a way to exit the program
     if inp.lower() == 'quit': break
     #put the different calls here e.g navigating through the menu...
-    if inp.lower() == 'student':
-        studentMenu(courses,programs,semesters,students)
-    if inp.lower() == 'admin':
+    elif inp.lower() == 'student':
+        studentMenu(courses,programs,semesters,students,passwords)
+    elif inp.lower() == 'admin':
         adminmenu(courses,programs,semesters,students)
-    if inp.lower() == 'help': helpmain()
+    elif inp.lower() == 'help': helpmain()
+
     else: print('Imput error try again\nTry entering help to see the comands')
 ## save all files or save files when finished editing them?
 print ('exiting program') 

@@ -1,4 +1,4 @@
-def studentMenu (courses,programs,semesters,students):
+def studentMenu (courses,programs,semesters,students,passwords):
    
     
 
@@ -9,14 +9,14 @@ def studentMenu (courses,programs,semesters,students):
     #import Semester
 
     ## login Peter
-    def login(students):
+    def login(passwords):
         print('Please sign in')
-        studentnum = input('Enter your student number\n')
+        username = input('Enter your student number\n')
         pword = input('Enter your password\n')
-        for i in students:
-            if i.studentID == studentnum:
+        for i in passwords:
+            if i.admin == '0' and i.username == username:
                 ### we need a pasword for each student!!!!!!!!!!!
-                if pword == i.pword:
+                if pword == i.password:
                     return True
         return False
 
@@ -35,32 +35,31 @@ def studentMenu (courses,programs,semesters,students):
     def helpstudent():
         print('If you would like to\n\nAccess your accedemic history - enter academic history\nCheck your course or program information - enter course or program information\nEnrol - enter enrol\n Un enrol - enter un enrol\nReturn to the main menu - enter exit')
 
-    success = login(students)
+    success = login(passwords)
     if success:
         finish = True
         print('\nwelcome to the student menu\n')
         helpstudent()  
     else :
-        ## change back to false when passwords are implimented as this True is just so we can test the other functions
-        finish = True
-        ## remove the print and help call when passwords have been implemented as they are there for testingstud
-        print('welcome to the student menu\n')
-        help()  
-        #################
+        
+        finish = False
         print('incorrect details')
+        
+        #################
+        
     
     while finish:
         inp = input()
         ## returning to the base menu 
         if inp.lower() == 'help': helpstudent()
-        if inp.lower() == 'exit': break
-        if inp.lower() == 'academic history':
+        elif inp.lower() == 'exit': break
+        elif inp.lower() == 'academic history':
             pass #acc hsit function 
-        if inp.lower() == 'course or program information':
+        elif inp.lower() == 'course or program information':
             pass #course or program information function
-        if inp.lower() == 'enrol':
+        elif inp.lower() == 'enrol':
             pass #Enrol function
-        if inp.lower() == 'un enrol':
+        elif inp.lower() == 'un enrol':
             pass #Un enrol function
         else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 
