@@ -117,14 +117,14 @@ def adminmenu(courses,programs,semesters,students):
 
 ## Exit Peter
  ######################33 need to change to admin passwords when pasword section is added
-    def login(students):
+    def login(passwords):
         print('Please sign in')
-        studentnum = input('Enter your student number\n')
+        username = input('Enter your student number\n')
         pword = input('Enter your password\n')
-        for i in students:
-            if i.studentID == studentnum:
+        for i in passwords:
+            if i.admin == '1' and i.username == username:
                 ### we need a pasword for each student!!!!!!!!!!!
-                if pword == i.pword:
+                if pword == i.password:
                     return True
         return False
     ## 3 seperate things for add remove ammend ... 
@@ -138,10 +138,10 @@ def adminmenu(courses,programs,semesters,students):
         helpadmin()  
     else:
         ## change back to false when passwords are implimented as this True is just so we can test the other functions
-        finish = True
+        finish = False
         ## remove the print and help call when passwords have been implemented as they are there for testingstud
-        print('welcome to the student menu\n')
-        help()  
+        
+        
         #################
         print('incorrect details')
     
