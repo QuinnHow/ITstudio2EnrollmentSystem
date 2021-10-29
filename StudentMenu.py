@@ -1,3 +1,8 @@
+import main
+
+
+
+
 def studentMenu (courses,programs,semesters,students):
    
     
@@ -21,11 +26,30 @@ def studentMenu (courses,programs,semesters,students):
         return False
 
     ## Display academic history and current enrolment Quinn
+    def displayAc(stu):
+        print('0000000000000000000000000000000000000000000000')
+        i = 0
+        print('Student Name:',stu.name)
+        print('Student ID:',stu.studentID)
+        print('Student Academic History:')        
+        while i < len(stu.accedemicHist):
+            
+            x = eval(stu.accedemicHist[i])
+                        
+            print('In {0} a grade of {1} was acheived'.format(x[0], x[1]))
+            i+=1
+            
+        
     
-    def acSearch(ID):
-        student = Student.getStudent(ID) 
-        print(student.__str__)
     ## Querying course or program information Quinn 
+    
+
+
+
+
+
+
+
 
 
     ## Enrol/UnEnrol in a current offering (You will need to consider the pre-req and the impact of an enrollment.) Quinn 
