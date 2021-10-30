@@ -99,10 +99,18 @@ def stuSearch(ID):
         else:
             return None
 #Student.getStudent('s3653411')
-
-
-
-
+def printclasses(courses):
+    for i in courses: print(i)
+def printclassessearch(courses, title = None, code= None):
+    if (title == None or title == '' )and (code == None or code == ''):
+        printclasses(courses)
+    elif title == None or title == '':
+        for i in courses:
+            if i.code == code : print(i)
+    elif code == None or code == '': 
+        for i in courses:
+            if i.title == title : print(i)
+    else: print('something went wrong with your search ')
 def helpmain():
     print('If you would like to\nAccess the student menu - enter student\nAccess the admin menu - enter admin\nExit the program - enter quit')
 
@@ -120,7 +128,12 @@ while finish:
     elif inp.lower() == 'admin':
         adminmenu(courses,programs,semesters,students,passwords)
     elif inp.lower() == 'help': helpmain()
+    elif inp.lower() == 'classes': printclasses(courses)
+    elif inp.lower() == 'class search': printclassessearch(courses,input('enter the tiqtle you would like to search for or else press enter'),input('enter the course code you would like to search for or else press enter'))
 
     else: print('Imput error try again\nTry entering help to see the comands')
 ## save all files or save files when finished editing them?
 print ('exiting program') 
+
+
+
