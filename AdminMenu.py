@@ -164,6 +164,8 @@ def adminmenu(courses,programs,semesters,students,passwords):
                 year = input('Enter year: ')
                 i.studyPlan.append(courseCode,semester,year)
                 return print(i.studyPlan)
+    ## still looking into this
+    
 
 
 ## Validate a students study plan Sai
