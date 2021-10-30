@@ -1,7 +1,8 @@
 import csv
+import Student
 
 def adminmenu(courses,programs,semesters,students,passwords):
-##import Student
+
 ##import Program
 ##import Course
 ##import Semester
@@ -11,6 +12,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
     def addStudent(student):
         with open('student.csv', 'w') as writeFile:
             writeFile.write(student)
+            
 
     def removeStudent(student):
         ## remove student from row, remove student from program, drop student in course offering,
@@ -152,16 +154,41 @@ def adminmenu(courses,programs,semesters,students,passwords):
 ## Query student information including academic history and current enrolment Quinn
 
 
-## Allow manual amendment of the study plan for a student Sai
+
+# Allow manual amendment of the study plan for a student Sai
+    def addStudyPlan(studentID):
+        for i in students:
+            if i.studentID == studentID:
+                courseCode = input('Enter course code: ')
+                semester = input('Enter Semester: ')
+                year = input('Enter year: ')
+                i.studyPlan.append(courseCode,semester,year)
+                return print(i.studyPlan)
 
 
 ## Validate a students study plan Sai
 
 
 ## generate a student plan for a student of minimum length Sai
+    def studyPlan(studentID):
 
+        for i in students:
+            if i.studentID == studentID:
+            
+                return print(i.studyPlan)
+    
 
 ## for a particular course offering display a sorted list of students Sai
+
+## in the assignment document it says the input should be course id and semester, 
+## we need to add a input column to academic history under the student csv.
+## also need to fix the academic spelling
+
+    def achivementList(courseID,sem):
+        for i in students:
+            if i.accedemicHist == courseID and i.accemicHist == sem:
+                return print(i.accedemicHist)
+
 
 ## Exit Peter
  ######################33 need to change to admin passwords when pasword section is added
@@ -198,6 +225,18 @@ def adminmenu(courses,programs,semesters,students,passwords):
         ## returning to the base menu 
         if inp.lower() == 'help': helpadmin()
         if inp.lower() == 'exit': break
+        if inp.lower() == 'study':
+            studentID = input('Enter studentID: ')
+            studyPlan(studentID)
+        if inp.lower() == 'add study':
+            studentID = input('Enter studentID: ')
+            addStudyPlan(studentID)
+        if inp.lower() == 'view achi':
+            courseID = input('Enter courseID: ')
+            sem = input('enter semester: ')
+            achivementList(courseID,sem)
+        ## we will fix these soon
+
         ## these need to be changed to the function calls for the admin menu
         if inp.lower() == 'academic history':
             pass #acc hsit function 
@@ -207,5 +246,6 @@ def adminmenu(courses,programs,semesters,students,passwords):
             pass #Enrol function
         if inp.lower() == 'un enrol':
             pass #Un enrol function
+
         else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 
