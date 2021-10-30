@@ -29,8 +29,20 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writer.writerows(lines) 
     
 
-    def amendStudent(student):
-        pass
+    def amendStudent(student, newStudent):
+        lines = []
+        with open('student.csv', 'r') as readFile:
+            reader = csv.reader(readFile)
+            for row in reader:
+                lines.append(row)
+                for field in row:
+                    if field == student:
+                        lines.remove(row)
+
+        with open('student.csv', 'w') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lines) 
+            writeFile.write(newStudent)
 
 ## Add/Remove/Amendacourse(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g.,semester offerings.)James
     def addCourse(course):
@@ -52,8 +64,20 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writer = csv.writer(writeFile)
             writer.writerows(lines)
 
-    def amendCourse(course):
-        pass
+    def amendCourse(course, newCourse):
+        lines = []
+        with open('course.csv', 'r') as readFile:
+            reader = csv.reader(readFile)
+            for row in reader:
+                lines.append(row)
+                for field in row:
+                    if field == course:
+                        lines.remove(row)
+
+        with open('course.csv', 'w') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lines) 
+            writeFile.write(newCourse)
 
 ## Add/Remove/Amendaprogram(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students.)James
     def addProgram(program):
@@ -75,8 +99,20 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writer = csv.writer(writeFile)
             writer.writerows(lines)
 
-    def amendProgram(program):
-        pass
+    def amendProgram(program, newProgram):
+        lines = []
+        with open('program.csv', 'r') as readFile:
+            reader = csv.reader(readFile)
+            for row in reader:
+                lines.append(row)
+                for field in row:
+                    if field == program:
+                        lines.remove(row)
+
+        with open('program.csv', 'w') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lines)
+            writeFile.write(newProgram)
 
 ## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)James
     def addSemester(semester):
@@ -97,9 +133,21 @@ def adminmenu(courses,programs,semesters,students,passwords):
         with open('semester.csv', 'w') as writeFile:
             writer = csv.writer(writeFile)
             writer.writerows(lines)
+            
+    def amendSemester(semester, newSemester):
+        lines = []
+        with open('semester.csv', 'r') as readFile:
+            reader = csv.reader(readFile)
+            for row in reader:
+                lines.append(row)
+                for field in row:
+                    if field == semester:
+                        lines.remove(row)
 
-    def amendSemester(semester):
-        pass
+        with open('semester.csv', 'w') as writeFile:
+            writer = csv.writer(writeFile)
+            writer.writerows(lines)
+            writeFile.write(newSemester)
 
 ## Query student information including academic history and current enrolment Quinn
 
