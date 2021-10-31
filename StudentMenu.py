@@ -262,5 +262,6 @@ def studentMenu (courses,programs,semesters,students,passwords):
             easy()
         elif inp.lower() == '6':
             hard()
+        elif inp.lower() == 'search': printclassessearch(courses,input('To use the search function you need two imputs title and code if you dont want to search by title or code just press enter for the prompts\nIf you would like to display all courses press enter twice\nenter the title you would like to search for or else press enter to not search with title\n'),input('Enter the course code you would like to search for or else press enter to not search with code\n'))
         else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 

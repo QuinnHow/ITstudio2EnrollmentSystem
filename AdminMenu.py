@@ -201,23 +201,23 @@ def adminmenu(courses,programs,semesters,students,passwords):
 
 
 ## Exit Peter
-        def printclasses(courses):
-            for i in courses: print(i)
-        def printclassessearch(courses, title = None, code= None):
-            if (title == '' )and (code == ''):
-                printclasses(courses)
-            elif  title == '':
-                for i in courses:
-                    if i.code == code : print(i)
-            elif code == '': 
-                for i in courses:
-                    if i.title == title : print(i)
-            elif code != '' and title != '':
-                for i in courses:
-                    if i.title == title and i.code == code:
-                        print(i)
+    def printclasses(courses):
+        for i in courses: print(i)
+    def printclassessearch(courses, title = None, code= None):
+        if (title == '' )and (code == ''):
+            printclasses(courses)
+        elif  title == '':
+            for i in courses:
+                if i.code == code : print(i)
+        elif code == '': 
+            for i in courses:
+                if i.title == title : print(i)
+        elif code != '' and title != '':
+            for i in courses:
+                if i.title == title and i.code == code:
+                    print(i)
 
-            else: print('something went wrong with your search ')
+        else: print('something went wrong with your search ')
             
  ######################33 need to change to admin passwords when pasword section is added
     def login(passwords):
@@ -274,6 +274,6 @@ def adminmenu(courses,programs,semesters,students,passwords):
             pass #Enrol function
         elif inp.lower() == 'un enrol':
             pass #Un enrol function
-
+        elif inp.lower() == 'search': printclassessearch(courses,input('To use the search function you need two imputs title and code if you dont want to search by title or code just press enter for the prompts\nIf you would like to display all courses press enter twice\nenter the title you would like to search for or else press enter to not search with title\n'),input('Enter the course code you would like to search for or else press enter to not search with code\n'))
         else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 
