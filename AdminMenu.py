@@ -279,7 +279,8 @@ def adminmenu(courses,programs,semesters,students,passwords):
             break
         ## According the user input number it triggers a function corresponding to it
         elif inp == '1':
-            addStudent()
+            studentID = input('Enter studentID: ')
+            addStudent(studentID)
         elif inp == '2':
             removeStudent()
         elif inp == '3':
