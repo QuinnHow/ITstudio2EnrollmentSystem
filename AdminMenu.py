@@ -25,12 +25,10 @@ def adminmenu(courses,programs,semesters,students,passwords):
     def removeStudent(studentID):
         lines = []
         with open('student.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile) ## read file
+            reader = csv.reader(readFile, delimiter=' ') ## read file
             for row in reader:
-                lines.append(row) ## for every row in csv file, add to list
-                for field in row:
-                    if field == studentID: ## if field contains student we want to remove
-                        lines.remove(row) ## remove row containing student
+                if row[1] != studentID: ## if row doesn't contain studentID we don't want
+                    lines.append(row) ## add to list
 
         with open('student.csv', 'w') as writeFile: ## open file for writing
             writer = csv.writer(writeFile)
