@@ -207,6 +207,24 @@ def studentMenu (courses,programs,semesters,students,passwords):
 
 
     ## Exit Peter
+    def printclasses(courses):
+        for i in courses: print(i)
+    def printclassessearch(courses, title = None, code= None):
+        if (title == '' )and (code == ''):
+            printclasses(courses)
+        elif  title == '':
+            for i in courses:
+                if i.code == code : print(i)
+        elif code == '': 
+            for i in courses:
+                if i.title == title : print(i)
+        elif code != '' and title != '':
+            for i in courses:
+               if i.title == title and i.code == code:
+                    print(i)
+
+        else: print('something went wrong with your search ')
+
     def helpstudent():
         print('If you would like to\n\nAccess your accedemic history - enter 1\nCheck your course or program information - 2\nEnrol - enter 3\n Un enrol - enter 4\nSee the easiest class - enter 5\nSee the hardest class - enter 6\nReturn to the main menu - enter exit')
 
@@ -244,5 +262,6 @@ def studentMenu (courses,programs,semesters,students,passwords):
             easy()
         elif inp.lower() == '6':
             hard()
+        elif inp.lower() == 'search': printclassessearch(courses,input('To use the search function you need two imputs title and code if you dont want to search by title or code just press enter for the prompts\nIf you would like to display all courses press enter twice\nenter the title you would like to search for or else press enter to not search with title\n'),input('Enter the course code you would like to search for or else press enter to not search with code\n'))
         else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 

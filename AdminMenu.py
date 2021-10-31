@@ -201,6 +201,24 @@ def adminmenu(courses,programs,semesters,students,passwords):
 
 
 ## Exit Peter
+    def printclasses(courses):
+        for i in courses: print(i)
+    def printclassessearch(courses, title = None, code= None):
+        if (title == '' )and (code == ''):
+            printclasses(courses)
+        elif  title == '':
+            for i in courses:
+                if i.code == code : print(i)
+        elif code == '': 
+            for i in courses:
+                if i.title == title : print(i)
+        elif code != '' and title != '':
+            for i in courses:
+                if i.title == title and i.code == code:
+                    print(i)
+
+        else: print('something went wrong with your search ')
+            
  ######################33 need to change to admin passwords when pasword section is added
     def login(passwords):
         print('Please sign in')
