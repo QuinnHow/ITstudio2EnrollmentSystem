@@ -226,7 +226,7 @@ def studentMenu (courses,programs,semesters,students,passwords):
         else: print('something went wrong with your search ')
 
     def helpstudent():
-        print('If you would like to\n\nAccess your accedemic history - enter academic history\nCheck your course or program information - enter course or program information\nEnrol - enter enrol\n Un enrol - enter un enrol\nReturn to the main menu - enter exit')
+        print('If you would like to\n\nAccess your accedemic history - enter 1\nCheck your course or program information - 2\nEnrol - enter 3\n Un enrol - enter 4\nSee the easiest class - enter 5\nSee the hardest class - enter 6\nReturn to the main menu - enter exit')
 
     success = login(passwords)
     if success:
@@ -249,18 +249,18 @@ def studentMenu (courses,programs,semesters,students,passwords):
         ## returning to the base menu 
         if inp.lower() == 'help': helpstudent()
         elif inp.lower() == 'exit': break
-        elif inp.lower() == 'academic history':
+        elif inp.lower() == '1':
             ## work on this!
             displayAc(user) 
-        elif inp.lower() == 'course or program information':
+        elif inp.lower() == '2':
             courseQuery(input('What is the name or code of what you are querying:'))
-        elif inp.lower() == 'enrol':
+        elif inp.lower() == '3':
             enrol(user,input('Please enter the course code:'),input('Please enter the semester and year in the format of SS,YYYY:'),input('Please enter the code of any preRequisite classes if none write none:'))
-        elif inp.lower() == 'un enrol':
+        elif inp.lower() == '4':
             unEnrol(user,input('Please enter the code of the course you wish to unenroll from:'))
-        elif inp.lower() == 'easiest':
+        elif inp.lower() == '5':
             easy()
-        elif inp.lower() == 'hardest':
+        elif inp.lower() == '6':
             hard()
         else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 

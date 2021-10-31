@@ -35,4 +35,4 @@ class Student:
         # studdy plan history is a lsit of tupples
         self.studyPlan = studyPlan
         self.curEnoll = curEnoll
-    
+
