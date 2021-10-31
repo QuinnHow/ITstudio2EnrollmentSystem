@@ -152,6 +152,47 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writeFile.write(newSemester)
 
 ## Query student information including academic history and current enrolment Quinn
+    def stuQuery(students,search):
+            stu = None
+            search = search.lower()
+            for i in students:
+                if search == i.studentID:
+                    stu = i
+            if stu == None:
+                print('No matching student')
+                exit()
+            i = 0
+            print('Student Name:',stu.name)
+            print('Student ID:',stu.studentID)
+            print('Student Academic History:')        
+            while i < len(stu.accedemicHist):
+                
+                x = eval(stu.accedemicHist[i])
+                            
+                print('In {0} a grade of {1} was acheived'.format(x[0], x[1]))
+                i+=1
+            print('Student current enrollment:')
+            i = 0
+            while i < len(stu.curEnoll):
+                
+                x = eval(stu.curEnoll[i])
+                            
+                print('The course {0} is being taken in {1}'.format(x[0], x[1]))
+                i+=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Allow manual amendment of the study plan for a student Sai
     def addStudyPlan(studentID):
         for i in students:
@@ -222,7 +263,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
  ######################33 need to change to admin passwords when pasword section is added
     def login(passwords):
         print('Please sign in')
-        username = input('Enter your student number\n')
+        username = input('Enter your username\n')
         pword = input('Enter your password\n')
         for i in passwords:
             if i.admin == '1' and i.username == username:
@@ -266,8 +307,8 @@ def adminmenu(courses,programs,semesters,students,passwords):
         ## we will fix these soon
 
         ## these need to be changed to the function calls for the admin menu
-        elif inp.lower() == 'academic history':
-            pass #acc hsit function 
+        elif inp.lower() == '5':
+            stuQuery(students,input('Please enter the desired student\'s student ID: '))
         elif inp.lower() == 'course or program information':
             pass #course or program information function
         elif inp.lower() == 'enrol':
