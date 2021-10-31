@@ -114,7 +114,7 @@ while finish:
     elif inp.lower() == '2':
         adminmenu(courses,programs,semesters,students,passwords)
     elif inp.lower() == 'help': helpmain()
-    elif inp.lower() == 'classes': printclasses(courses)
+    #elif inp.lower() == 'classes': printclasses(courses)
     elif inp.lower() == 'class search': printclassessearch(courses,input('To use the search function you need two imputs title and code if you dont want to search by title or code just press enter for the prompts\nIf you would like to display all courses press enter twice\nenter the title you would like to search for or else press enter to not search with title\n'),input('Enter the course code you would like to search for or else press enter to not search with code\n'))
 
     else: print('Imput error try again\nTry entering help to see the comands')
