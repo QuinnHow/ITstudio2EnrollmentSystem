@@ -28,11 +28,11 @@ passwords =[]
 courseFile = open('course.csv')
 courseReader = csv.reader(courseFile, delimiter=' ')
 for row in courseReader:
-    print(row)
+    
     course = Course(row[0], row[1], row[2], row[3], row[4])
     
     courses.append(course)
-    print(course)
+    
 
 
 
@@ -41,32 +41,44 @@ for row in courseReader:
 programFile = open('program.csv')
 programReader = csv.reader(programFile, delimiter=' ')
 for row in programReader:
-    print('---------------------------------------',row)
+    
     program = Program(row[0], row[1], row[2], row[3])
     
     programs.append(program)
-    print(program)
+    
 
 
 
 semesterFile = open('semester.csv')
 semesterReader = csv.reader(semesterFile, delimiter=' ')
 for row in semesterReader:
-    print(row)
+    
     semester = Semester(row[0], row[1])
     
     semesters.append(semester)
-    print(semester)
+    
 
 
 studentFile = open('student.csv')
 studentReader = csv.reader(studentFile, delimiter=' ')
 for row in studentReader:
-    print(row)
-    student = Student(row[0],row[1],row[2],row[3],row[4].split(),row[5],row[6])
+    
+    student = Student(row[0],row[1],row[2],row[3],row[4].split(),row[5].split(),row[6].split())
     
     students.append(student)
-    print(student)
+
+
+
+        
+            
+         
+        
+
+    
+    
+
+
+
 
 
 
@@ -81,11 +93,11 @@ for row in studentReader:
 passwordFile = open('passwords.csv')
 passwordReader = csv.reader(passwordFile, delimiter=' ')
 for row in passwordReader:
-    print('---------------------------------------',row)
+    
     password = Password(row[0], row[1], row[2])
     
     passwords.append(password)
-    print(password)
+    
 
 for i in courses:
     if i.getCourse('cosc2411') is True:
