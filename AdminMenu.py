@@ -152,9 +152,6 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writeFile.write(newSemester)
 
 ## Query student information including academic history and current enrolment Quinn
-
-
-
 # Allow manual amendment of the study plan for a student Sai
     def addStudyPlan(studentID):
         for i in students:
@@ -162,8 +159,19 @@ def adminmenu(courses,programs,semesters,students,passwords):
                 courseCode = input('Enter course code: ')
                 semester = input('Enter Semester: ')
                 year = input('Enter year: ')
-                i.studyPlan.append(courseCode,semester,year)
+                lines = []
+                # with open('semester.csv', 'r') as readFile:
+                #     reader = csv.reader(readFile)
+                # for row in reader:
+                #     lines.append(row)
+                # for field in row:
+                #     if field == studentID:
+                #         lines.remove(row)
+                # i.studyPlan.append(courseCode,semester,year)
+                with open('semester.csv', 'w') as writeFile:
+                    writeFile.write(courseCode,semester,year)
                 return print(i.studyPlan)
+           
     ## still looking into this
     
 
