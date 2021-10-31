@@ -93,7 +93,7 @@ def printclassessearch(courses, title = None, code= None):
     else: print('something went wrong with your search ')
 # a help function to display the actions a user can take
 def helpmain():
-    print('If you would like to\n1.Access the student menu\n2.Access the admin menu\nquit.Exit the program')
+    print('If you would like to\n1.Access 2 the menu\n2.Access the admin menu\nquit.Exit the program')
 
 print('Welcome')
 helpmain()# shows an initial list of actions that can be taken

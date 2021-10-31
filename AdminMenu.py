@@ -231,7 +231,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
                     if i.code == courseCode and i.avalSem == semester: #Validating whether the coursecode and semester are inputed as their offering semster
                         student.studyPlan.append("(\'{0}\',\'{1}\')".format(courseCode,semester))  #Appends the CourseCode and semster to the existing list of StudyPlan
                     else : print('Error check the course code and available semester') ## Error statement
-                return print(student.studyPlan)
+                return print('The change has been added to the student study plan. {}'.format(student.studyPlan))
 
 ## generate a student plan for a student of minimum length Sai
     def studyPlan(studentID): # fucntion to genrate a studyplan
@@ -239,7 +239,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
         for i in students: # seachers for the student and prints it
             if i.studentID == studentID:
                 student = i 
-                return print(student.studyPlan)
+                return print('The student study plan is below:\n {}'.format(student.studyPlan))
     
 
 ## for a particular course offering display a sorted list of students Sai
@@ -263,16 +263,39 @@ def adminmenu(courses,programs,semesters,students,passwords):
 
             # for i in range(len(s.accedemicHist)):
     def checkGrad(studentID):
-        ini = input('courseID: ')
         temp = []
+        code = []
+        cond = []
+        final = []
+        credit = 12
+        for c in courses:
+            code.append(c.code)
+        
+
+        
         for s in students:
-            for i in s.accedemicHist:
-                if ini in i:
-                    temp.append(i)
+            if s.studentID == studentID:
+                for i in s.accedemicHist:
+                
+                    # if code in i and not 'NN' in i:
+                        i = eval(i)
+                        temp.append(i)
 
             # temp.append(item for item in s.accedemicHist if ini in item)
+        for t in temp:
+            for z in code:
+                if t[0] == z:
+                     cond.append(t)
+        for f in cond:
+            if 'NN' not in cond:
+                final.append(f)
+        grad = 230- (len(final) * credit)
+        if grad == 0:
+            return print('Sudent can graduate')
+        else :
+            return print('Student still needs {} credits points to graduate'.format(grad))
 
-        print(temp)
+        
             
                 
 
