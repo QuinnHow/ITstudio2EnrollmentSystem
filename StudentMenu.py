@@ -149,30 +149,23 @@ def studentMenu (courses,programs,semesters,students,passwords):
         for i in classList:
             ease = eval(easiest)
             i = eval(i)
-            if ease[1]/ease[2] < int(i[1])/int(i[2]):
-                easiest = i
+            if i[2] != 0:
+                if ease[1]/ease[2] < int(i[1])/int(i[2]):
+                    easiest = i
         #finds the average mark and then asigns that an average letter grade
         easiest = eval(easiest)
         avMark = int(easiest[1])/int(easiest[2])
         if avMark >= 4:
-            string = 'The hardest class is {0} with an average grade of HD'.format(hardest[0])
+            string = 'The easiest class is {0} with an average grade of HD'.format(easiest[0])
         elif avMark >= 3:
-            string = 'The hardest class is {0} with an average grade of DI'.format(hardest[0])
+            string = 'The easiest class is {0} with an average grade of DI'.format(easiest[0])
         elif avMark >= 2:
-            string = 'The hardest class is {0} with an average grade of CR'.format(hardest[0])
+            string = 'The easiest class is {0} with an average grade of CR'.format(easiest[0])
         elif avMark >= 1:
-            string = 'The hardest class is {0} with an average grade of PA'.format(hardest[0])
-        
-            # string = 'The hardest class is {0} with an average grade of NN'.format(hardest[0])    
-            # string = 'The hardest class is {0} with an average grade of HD'.format(easiest[0])
-        elif avMark >= 3:
-            string = 'The hardest c lass is {0} with an average grade of DI'.format(easiest[0])
-        elif avMark >= 2:
-            string = 'The hardest class is {0} with an average grade of CR'.format(easiest[0])
-        elif avMark >= 1:
-            string = 'The hardest class is {0} with an average grade of PA'.format(easiest[0])
+            string = 'The easiest class is {0} with an average grade of PA'.format(easiest[0])
         else:
-            string = 'The hardest class is {0} with an average grade of NN'.format(easiest[0])
+            string = 'The easiest class is {0} with an average grade of NN'.format(easiest[0])
+         
         print(string)
     
     
@@ -205,8 +198,9 @@ def studentMenu (courses,programs,semesters,students,passwords):
         for i in classList:
             har = eval(hardest)
             i = eval(i)
-            if har[1]/har[2] > int(i[1])/int(i[2]):
-                hardest = i
+            if i[2] != 0:
+                if har[1]/har[2] > int(i[1])/int(i[2]):
+                    hardest = i
         
         #finds the average mark and then asigns that an average letter grade
         avMark = int(hardest[1])/int(hardest[2])
@@ -293,4 +287,4 @@ def studentMenu (courses,programs,semesters,students,passwords):
             hard()
         elif inp.lower() == 'search': printclassessearch(courses,input('To use the search function you need two imputs title and code if you dont want to search by title or code just press enter for the prompts\nIf you would like to display all courses press enter twice\nenter the title you would like to search for or else press enter to not search with title\n'),input('Enter the course code you would like to search for or else press enter to not search with code\n'))
         else: print('Imput error try again\nTry entering help to see the comands')
-    print ('returning to main meu') 
+        print ('returning to main meu') 

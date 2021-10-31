@@ -250,7 +250,9 @@ def adminmenu(courses,programs,semesters,students,passwords):
         # fucction should search into the acedemic history of all the students who did the course, sorts them and prints them.
         temp = []
         for s in students:
-            temp.append(s.accedemicHist)
+            for i in s.accedemicHist:
+                if courseID in i:
+                    temp.append(i)
             # cond = [item for item in s.accedemicHist if courseID in item]
         temp.sort()
         print(temp) # could imporve this function but does not work how its supposed to work. -sai
@@ -260,8 +262,14 @@ def adminmenu(courses,programs,semesters,students,passwords):
             # for i in range(len(s.accedemicHist)):
     def checkGrad(studentID):
         ini = input('courseID: ')
+        temp = []
         for s in students:
-           temp = [item for item in s.accedemicHist if ini in item]
+            for i in s.accedemicHist:
+                if ini in i:
+                    temp.append(i)
+
+            # temp.append(item for item in s.accedemicHist if ini in item)
+
         print(temp)
             
                 
