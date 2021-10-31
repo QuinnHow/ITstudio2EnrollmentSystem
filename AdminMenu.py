@@ -178,24 +178,21 @@ def adminmenu(courses,programs,semesters,students,passwords):
 
 
 # Allow manual amendment of the study plan for a student Sai
-    def addStudyPlan(studentID):
-        for i in students:
-            if i.studentID == studentID:
-                student = i
-                courseCode = input('Enter course code: ')
-                semester = input('Enter Semester and the year eg: s1,2021: ')
+    def addStudyPlan(studentID): #function for adding studyplan
+        for i in students: #checks each student in students list (for loop)
+            if i.studentID == studentID: #checks weather the studentlist conatins the studentID the user is looking for
+                student = i # Assign the match student to the student variable
+                courseCode = input('Enter course code: ') # Stores user input into the CourseCode variable
+                semester = input('Enter Semester and the year eg: s1,2021: ')# stores userinput into Semester Variable
                 lines = []
-                for i in courses:
-                    if i.code == courseCode and i.avalSem == semester:
-                        student.studyPlan.append("(\'{0}\',\'{1}\')".format(courseCode,semester))
-                    else : print('Error check the course code and available semester')
+                for i in courses: # checks each course in courses list (for loop)
+                    if i.code == courseCode and i.avalSem == semester: #Validating whether the coursecode and semester are inputed as their offering semster
+                        student.studyPlan.append("(\'{0}\',\'{1}\')".format(courseCode,semester))  #Appends the CourseCode and semster to the existing list of StudyPlan
+                    else : print('Error check the course code and available semester') ## Error statement
                 return print(student.studyPlan)
-## Validate a students study plan Sai
-
-
 
 ## generate a student plan for a student of minimum length Sai
-    def studyPlan(studentID):
+    def studyPlan(studentID): # fucntion to genrate a studyplan
 
         for i in students:
             if i.studentID == studentID:
@@ -209,7 +206,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
 ## we need to add a input column to academic history under the student csv.
 ## also need to fix the academic spelling
 
-    def achivementList(courseID,sem):
+    def achivementList(courseID,sem): # function sorted list
         for i in students:
             if i.accedemicHist == courseID and i.accemicHist == sem:
                 return print(i.accedemicHist)
@@ -248,7 +245,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
     ## 3 seperate things for add remove ammend ... 
     def helpadmin():
         # print('If you would like to\n\n 1. Add student\n 2. RemoveAdd/Remove/Amendacourse - enter 2 \nAdd/Remove/Amendaprogram - enter 3 \nAdd/Remove/Amendasemester - enter 4 \nQuery student information including academic history and current enrolment - enter 5 \nAllow manual amendment of the study plan for a student - enter 6\nValidate a students study plan - enter 7 \nGenerate a student plan for a student of minimum length - enter 8 \nFor a particular course offering display a sorted list of students - enter 9 \nReturn to the main menu - enter exit')
-        print(' 1.Add student \n 2.Remove student\n 3.Amend student\n 4.Add course\n 5.Remove course\n 6.Amend course\n 7.Add program\n 8.Remove Program\n 9.Amend Program\n 10.Add Semester\n 11.Remove Semester\n 12.Amend Semester\n 13.Query student information/Academic history\n 14.Genrate Study plan for a student\n 15.Amend study plan for a student\n 16.Validate a study pln for a student\n 17.Display a sorted list of students achievements in a course\n Enter search to search for a course\n Enter quit to exit\n\n Enter the number: ')
+        print(' 1.Add student \n 2.Remove student\n 3.Amend student\n 4.Add course\n 5.Remove course\n 6.Amend course\n 7.Add program\n 8.Remove Program\n 9.Amend Program\n 10.Add Semester\n 11.Remove Semester\n 12.Amend Semester\n 13.Query student information/Academic history\n 14.Genrate Study plan for a student\n 15.Amend study plan for a student\n 16.Display a sorted list of students achievements in a course\n Enter search to search for a course\n Enter quit to exit\n\n Enter the number: ')
 
     success = login(passwords)
     if success:
@@ -264,13 +261,13 @@ def adminmenu(courses,programs,semesters,students,passwords):
         #################
         print('incorrect details')
     
-    while finish:
+    while finish: # while loop which runs until user enters quit
         inp = input()
-        ## returning to the base menu 
         if inp.lower() == 'help':
             helpadmin()
         elif inp.lower() == 'quit':
             break
+        ## According the user input number it triggers a function corresponding to it
         elif inp == '1':
             addStudent()
         elif inp == '2':
@@ -304,11 +301,10 @@ def adminmenu(courses,programs,semesters,students,passwords):
             studentID = input('Enter studentID: ')
             addStudyPlan(studentID)
         elif inp == '16':
-            pass
-        elif inp == '17':
             courseID = input('Enter courseID: ')
             sem = input('enter semester: ')
             achivementList(courseID,sem)
+        ## search for certain course
         elif inp.lower() == 'search': printclassessearch(courses,input('To use the search function you need two imputs title and code if you dont want to search by title or code just press enter for the prompts\nIf you would like to display all courses press enter twice\nenter the title you would like to search for or else press enter to not search with title\n'),input('Enter the course code you would like to search for or else press enter to not search with code\n'))
         else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 
