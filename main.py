@@ -8,16 +8,6 @@ from Student import Student
 from password import Password
 from StudentMenu import studentMenu
 
-
-
-
-
-
-
-
-
-
-
 courses = []
 programs = []
 semesters = []
@@ -28,11 +18,11 @@ passwords =[]
 courseFile = open('course.csv')
 courseReader = csv.reader(courseFile, delimiter=' ')
 for row in courseReader:
-    
+    # print(row)
     course = Course(row[0], row[1], row[2], row[3], row[4])
     
     courses.append(course)
-    
+    # print(course)
 
 
 
@@ -41,63 +31,42 @@ for row in courseReader:
 programFile = open('program.csv')
 programReader = csv.reader(programFile, delimiter=' ')
 for row in programReader:
-    
+    # print('---------------------------------------',row)
     program = Program(row[0], row[1], row[2], row[3])
     
     programs.append(program)
-    
+    # print(program)
 
 
 
 semesterFile = open('semester.csv')
 semesterReader = csv.reader(semesterFile, delimiter=' ')
 for row in semesterReader:
-    
+    # print(row)
     semester = Semester(row[0], row[1])
     
     semesters.append(semester)
-    
+    # print(semester)
 
 
 studentFile = open('student.csv')
 studentReader = csv.reader(studentFile, delimiter=' ')
 for row in studentReader:
-    
-    student = Student(row[0],row[1],row[2],row[3],row[4].split(),row[5].split(),row[6].split())
+    # print(row)
+    student = Student(row[0],row[1],row[2],row[3],row[4].split(),row[5],row[6])
     
     students.append(student)
-
-
-
-        
-            
-         
-        
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
+    # print(student)
 
 
 passwordFile = open('passwords.csv')
 passwordReader = csv.reader(passwordFile, delimiter=' ')
 for row in passwordReader:
-    
+    # print('---------------------------------------',row)
     password = Password(row[0], row[1], row[2])
     
     passwords.append(password)
-    
+    # print(password)
 
 for i in courses:
     if i.getCourse('cosc2411') is True:
@@ -111,10 +80,18 @@ def stuSearch(ID):
         else:
             return None
 #Student.getStudent('s3653411')
-
-
-
-
+def printclasses(courses):
+    for i in courses: print(i)
+def printclassessearch(courses, title = None, code= None):
+    if (title == None or title == '' )and (code == None or code == ''):
+        printclasses(courses)
+    elif title == None or title == '':
+        for i in courses:
+            if i.code == code : print(i)
+    elif code == None or code == '': 
+        for i in courses:
+            if i.title == title : print(i)
+    else: print('something went wrong with your search ')
 def helpmain():
     print('If you would like to\nAccess the student menu - enter student\nAccess the admin menu - enter admin\nExit the program - enter quit')
 
@@ -132,7 +109,12 @@ while finish:
     elif inp.lower() == 'admin':
         adminmenu(courses,programs,semesters,students,passwords)
     elif inp.lower() == 'help': helpmain()
+    elif inp.lower() == 'classes': printclasses(courses)
+    elif inp.lower() == 'class search': printclassessearch(courses,input('enter the tiqtle you would like to search for or else press enter'),input('enter the course code you would like to search for or else press enter'))
 
     else: print('Imput error try again\nTry entering help to see the comands')
 ## save all files or save files when finished editing them?
 print ('exiting program') 
+
+
+

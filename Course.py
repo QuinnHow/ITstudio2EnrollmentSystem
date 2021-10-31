@@ -12,7 +12,7 @@ class Course:
     
         
     def __str__(self):
-        statment = self.code + self.title + self.credit + self.preReq + self.avalSem
+        statment = self.code + " " + self.title + " "+self.credit +" "+ self.preReq +" "+ self.avalSem
         return statment 
 
 

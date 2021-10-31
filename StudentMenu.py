@@ -1,4 +1,4 @@
-
+#import main
 def studentMenu (courses,programs,semesters,students,passwords):
     
    
