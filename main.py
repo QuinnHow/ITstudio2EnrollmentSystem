@@ -83,14 +83,19 @@ def stuSearch(ID):
 def printclasses(courses):
     for i in courses: print(i)
 def printclassessearch(courses, title = None, code= None):
-    if (title == None or title == '' )and (code == None or code == ''):
+    if (title == '' )and (code == ''):
         printclasses(courses)
-    elif title == None or title == '':
+    elif  title == '':
         for i in courses:
             if i.code == code : print(i)
-    elif code == None or code == '': 
+    elif code == '': 
         for i in courses:
             if i.title == title : print(i)
+    elif code != '' and title != '':
+        for i in course:
+            if i.title == title and i.code == code:
+                print(i)
+
     else: print('something went wrong with your search ')
 def helpmain():
     print('If you would like to\nAccess the student menu - enter student\nAccess the admin menu - enter admin\nExit the program - enter quit')
@@ -115,6 +120,3 @@ while finish:
     else: print('Imput error try again\nTry entering help to see the comands')
 ## save all files or save files when finished editing them?
 print ('exiting program') 
-
-
-

@@ -13,8 +13,12 @@ class Student:
     
     
     def __str__(self):
-        statment = self.name + self.studentID + self.dob + self.programCode + self.studyPlan + self.curEnoll
+        statment = self.name + self.studentID + self.dob + self.programCode
         for i in self.accedemicHist:
+            statment += i
+        for i in self.studyPlan:
+            statment += i
+        for i in self.curEnoll:
             statment += i
         return statment
 
