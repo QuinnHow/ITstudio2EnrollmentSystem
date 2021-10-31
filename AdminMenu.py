@@ -160,13 +160,14 @@ def adminmenu(courses,programs,semesters,students,passwords):
                 semesters.remove(i) ## add to list
         cOfferings = newSemesterOffer ## assign semesterID to semID
         semID = input('Enter semester ID: ') ## ask for course offering
-        newSemester = semID + ',' + cOfferings ## create semester string
+        newSemester = semID + ' ' + cOfferings ## create semester string
         with open('semester.csv', 'w') as writeFile: ## open file for writing
             writeFile.write(newSemester)
             writeFile.write("\n")
             for i in semesters:
                 semester = i.ID + ' ' + str(i.cOfferings)
                 writeFile.write(semester)
+                writeFile.write("\n")
 
 ## Query student information including academic history and current enrolment Quinn
     def stuQuery(students,search):
