@@ -155,7 +155,6 @@ def studentMenu (courses,programs,semesters,students,passwords):
         easiest = eval(easiest)
         avMark = int(easiest[1])/int(easiest[2])
         if avMark >= 4:
-<<<<<<< HEAD
             string = 'The hardest class is {0} with an average grade of HD'.format(hardest[0])
         elif avMark >= 3:
             string = 'The hardest class is {0} with an average grade of DI'.format(hardest[0])
@@ -165,7 +164,6 @@ def studentMenu (courses,programs,semesters,students,passwords):
             string = 'The hardest class is {0} with an average grade of PA'.format(hardest[0])
         else:
             string = 'The hardest class is {0} with an average grade of NN'.format(hardest[0])
-=======
             string = 'The hardest class is {0} with an average grade of HD'.format(easiest[0])
         elif avMark >= 3:
             string = 'The hardest class is {0} with an average grade of DI'.format(easiest[0])
@@ -175,7 +173,6 @@ def studentMenu (courses,programs,semesters,students,passwords):
             string = 'The hardest class is {0} with an average grade of PA'.format(easiest[0])
         else:
             string = 'The hardest class is {0} with an average grade of NN'.format(easiest[0])
->>>>>>> 9320e4e82c42909ed93dd3d9cfa01ebb75f85c97
         print(string)
     
     
