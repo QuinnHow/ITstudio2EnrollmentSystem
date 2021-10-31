@@ -114,7 +114,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
 
         with open('program.csv', 'w') as writeFile: ## open file for writing
             for i in programs:
-                program = i.code + ' ' + i.credPoints + ' ' + str(i.core) + ' ' + str(i.elective)
+                program = i.code + ' ' + i.creditPoints + ' ' + str(i.core) + ' ' + str(i.elective)
                 writeFile.write(program)
                 writeFile.write("\n")
 
@@ -130,9 +130,9 @@ def adminmenu(courses,programs,semesters,students,passwords):
         with open('program.csv', 'w') as writeFile: ## open file for writing
             writeFile.write(newProgram)
             writeFile.write("\n")
-            for i in courses:
-                course = i.code + ' ' + i.credPoints + ' ' + str(i.core) + ' ' + str(i.elective)
-                writeFile.write(course)
+            for i in programs:
+                program = i.code + ' ' + i.creditPoints + ' ' + str(i.core) + ' ' + str(i.elective)
+                writeFile.write(program)
 
 ## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)James
     def addSemester(semesterID):
@@ -152,6 +152,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
             for i in semesters:
                 semester = i.ID + ' ' + str(i.cOfferings)
                 writeFile.write(semester)
+                writeFile.write("\n")
             
     def amendSemester(semesterOffer, newSemesterOffer):
         for i in semesters:
