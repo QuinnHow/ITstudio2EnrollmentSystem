@@ -1,3 +1,7 @@
+#start 8/10/21
+#last updated: 31/10/21
+#Members: James Hijazin:s3895829 , Peter Fulton:s3896790, Quinn How:s3899122, Saicharan Kannan:s3814854. 
+#The program is intended to allow students to enrol and observe their  programs and courses as well as allow administative staff to alter courses and student information.
 import csv
 import Student
 
@@ -17,31 +21,27 @@ def adminmenu(courses,programs,semesters,students,passwords):
         academicHist = input('Enter academic history: ') ## ask for academic history
         studyPlan = input('Enter study plan: ') ## ask for study plan
         curEnoll = input('Enter current enrollment: ') ## ask for current enrollment
-        student = name + ' ' + sID + ' ' + dob + ' ' + programCode + ' ' + academicHist + ' ' + studyPlan + ' ' + curEnoll ## create student string
+        studentcsv = name + ' ' + sID + ' ' + dob + ' ' + programCode + ' ' + academicHist + ' ' + studyPlan + ' ' + curEnoll ## create student string
         with open('student.csv', 'a') as writeFile: ## open file for writing
             writeFile.write("\n") ## create new line for new row
-            writeFile.write(student) ## write student to csv file
+            writeFile.write(studentcsv) ## write student to csv file
 
     def removeStudent(studentID):
-        lines = []
-        with open('student.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile, delimiter=' ') ## read file
-            for row in reader:
-                if row[1] != studentID: ## if row doesn't contain studentID we don't want
-                    lines.append(row) ## add to list
+        for i in students:
+            if i.studentID == studentID: ## if row doesn't contain studentID we don't want
+                students.remove(i) ## add to list
 
         with open('student.csv', 'w') as writeFile: ## open file for writing
-            writer = csv.writer(writeFile)
-            writer.writerows(lines) ## write data from list back to csv
+            for i in students:
+                student = i.name + ' ' + i.studentID + ' ' + i.dob + ' ' + i.programCode + ' ' + str(i.accedemicHist) + ' ' + str(i.studyPlan) + ' ' + str(i.curEnoll)
+                writeFile.write(student)
+                # writer.writerow(student.accedemicHist + student.studyPlan + student.curEnoll)
     
 
     def amendStudent(studentID, newStudentID):
-        lines = []
-        with open('student.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile, delimiter=' ') ## read file
-            for row in reader:
-                if row[1] != studentID: ## if row doesn't contain studentID we don't want
-                    lines.append(row) ## add to list
+        for i in students:
+            if i.studentID == studentID: ## if row doesn't contain studentID we don't want
+                students.remove(i) ## add to list
         sID = newStudentID ## assign studentID to sID
         name = input('Enter name: ') ## ask for name
         dob = input('Enter date of birth: ') ## ask for dob
@@ -51,9 +51,11 @@ def adminmenu(courses,programs,semesters,students,passwords):
         curEnoll = input('Enter current enrollment: ') ## ask for current enrollment
         newStudent = name + ' ' + sID + ' ' + dob + ' ' + programCode + ' ' + academicHist + ' ' + studyPlan + ' ' + curEnoll ## create new student string
         with open('student.csv', 'w') as writeFile: ## open file for writing
-            writer = csv.writer(writeFile)
-            writer.writerows(lines) ## write data from list back to csv
-            writeFile.write(newStudent) ## write new student to csv
+            writeFile.write(newStudent)
+            writeFile.write("\n")
+            for i in students:
+                student = i.name + ' ' + i.studentID + ' ' + i.dob + ' ' + i.programCode + ' ' + str(i.accedemicHist) + ' ' + str(i.studyPlan) + ' ' + str(i.curEnoll)
+                writeFile.write(student)
 
 ## Add/Remove/Amendacourse(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g.,semester offerings.)James
     def addCourse(courseCode):
@@ -68,24 +70,19 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writeFile.write(course) ## write course to csv file
 
     def removeCourse(courseCode):
-        lines = []
-        with open('course.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile, delimiter=' ') ## read file
-            for row in reader:
-                if row[0] != courseCode: ## if row doesn't contain courseCode we don't want
-                    lines.append(row) ## add to list
+        for i in courses:
+            if i.code == courseCode: ## if row doesn't contain studentID we don't want
+                courses.remove(i) ## add to list
 
         with open('course.csv', 'w') as writeFile: ## open file for writing
-            writer = csv.writer(writeFile)
-            writer.writerows(lines) ## write data from list back to csv
+            for i in courses:
+                course = i.code + ' ' + i.title + ' ' + i.credit + ' ' + str(i.preReq) + ' ' + str(i.avalSem)
+                writeFile.write(course)
 
     def amendCourse(courseCode, newCourseCode):
-        lines = []
-        with open('course.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile, delimiter=' ') ## read file
-            for row in reader:
-                if row[0] != courseCode: ## if row doesn't contain courseCode we don't want
-                    lines.append(row) ## add to list
+        for i in courses:
+            if i.code == courseCode: ## if row doesn't contain studentID we don't want
+                courses.remove(i) ## add to list
         cCode = newCourseCode ## assign newCourseCode to cCode
         title = input('Enter title: ') ## ask for title
         credit = input('Enter credit score: ') ## ask for credit score
@@ -93,9 +90,11 @@ def adminmenu(courses,programs,semesters,students,passwords):
         avalSem = input('Enter available semester: ') ## ask for semester
         newCourse = cCode + ' ' + title + ' ' + credit + ' ' + preReq + ' ' + avalSem ## create newCourse string
         with open('course.csv', 'w') as writeFile: ## open file for writing
-            writer = csv.writer(writeFile)
-            writer.writerows(lines) ## write data from list back to csv
-            writeFile.write(newCourse) ## write new course to csv
+            writeFile.write(newCourse)
+            writeFile.write("\n")
+            for i in courses:
+                course = i.code + ' ' + i.title + ' ' + i.credit + ' ' + str(i.preReq) + ' ' + str(i.avalSem)
+                writeFile.write(course)
 
 ## Add/Remove/Amendaprogram(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students.)James
     def addProgram(programCode):
@@ -109,34 +108,31 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writeFile.write(program) ## write program to csv file
 
     def removeProgram(programCode):
-        lines = []
-        with open('program.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile, delimiter=' ') ## read file
-            for row in reader:
-                if row[0] != programCode: ## if row doesn't contain programCode we don't want
-                    lines.append(row) ## add to list
+        for i in programs:
+            if i.code == programCode: ## if row doesn't contain studentID we don't want
+                programs.remove(i) ## add to list
 
         with open('program.csv', 'w') as writeFile: ## open file for writing
-            writer = csv.writer(writeFile)
-            writer.writerows(lines) ## write data from list back to csv
+            for i in programs:
+                program = i.code + ' ' + i.creditPoints + ' ' + str(i.core) + ' ' + str(i.elective)
+                writeFile.write(program)
+                writeFile.write("\n")
 
     def amendProgram(programCode, newProgramCode):
-        lines = []
-        with open('program.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile) ## read file
-            reader = csv.reader(readFile, delimiter=' ') ## read file
-            for row in reader:
-                if row[0] != programCode: ## if row doesn't contain programCode we don't want
-                    lines.append(row) ## add to list
+        for i in programs:
+            if i.code == programCode: ## if row doesn't contain studentID we don't want
+                programs.remove(i) ## add to list
         pCode = newProgramCode ## assign newProgramCode to pCode
         credit = input('Enter credit score: ') ## ask for credit score
         core = input('Enter core subjects: ' ) ## ask for core subjects
         elective = input('Enter electives: ') ## ask for electives
         newProgram = pCode + ' ' + credit + ' ' + core + ' ' + elective ## create newProgram string
         with open('program.csv', 'w') as writeFile: ## open file for writing
-            writer = csv.writer(writeFile)
-            writer.writerows(lines) ## write data from list back to csv
-            writeFile.write(newProgram) ## write new program to csv
+            writeFile.write(newProgram)
+            writeFile.write("\n")
+            for i in programs:
+                program = i.code + ' ' + i.creditPoints + ' ' + str(i.core) + ' ' + str(i.elective)
+                writeFile.write(program)
 
 ## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)James
     def addSemester(semesterID):
@@ -148,31 +144,30 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writeFile.write(semester) ## write semester to csv file
 
     def removeSemester(semesterOffer):
-        lines = []
-        with open('semester.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile, delimiter = ' ') ## read file
-            for row in reader:
-                if row[1] != semesterOffer: ## if row doesn't contain semesterOffer we don't want
-                    lines.append(row) ## add to list
+        for i in semesters:
+            if i.cOfferings == semesterOffer: ## if row doesn't contain studentID we don't want
+                semesters.remove(i) ## add to list
 
         with open('semester.csv', 'w') as writeFile: ## open file for writing
-            writer = csv.writer(writeFile)
-            writer.writerows(lines) ## write data from list back to csv
+            for i in semesters:
+                semester = i.ID + ' ' + str(i.cOfferings)
+                writeFile.write(semester)
+                writeFile.write("\n")
             
     def amendSemester(semesterOffer, newSemesterOffer):
-        lines = []
-        with open('semester.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile, delimiter = ' ') ## read file
-            for row in reader:
-                if row[1] != semesterOffer: ## if row doesn't contain semesterOffer we don't want
-                    lines.append(row) ## add to list
+        for i in semesters:
+            if i.cOfferings == semesterOffer: ## if row doesn't contain studentID we don't want
+                semesters.remove(i) ## add to list
         cOfferings = newSemesterOffer ## assign semesterID to semID
         semID = input('Enter semester ID: ') ## ask for course offering
-        newSemester = semID + ',' + cOfferings ## create semester string
+        newSemester = semID + ' ' + cOfferings ## create semester string
         with open('semester.csv', 'w') as writeFile: ## open file for writing
-            writer = csv.writer(writeFile)
-            writer.writerows(lines) ## write data from list back to csv
-            writeFile.write(newSemester) ## write new semester to csv
+            writeFile.write(newSemester)
+            writeFile.write("\n")
+            for i in semesters:
+                semester = i.ID + ' ' + str(i.cOfferings)
+                writeFile.write(semester)
+                writeFile.write("\n")
 
 ## Query student information including academic history and current enrolment Quinn
     def stuQuery(students,search):
@@ -219,7 +214,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
                     if i.code == courseCode and i.avalSem == semester: #Validating whether the coursecode and semester are inputed as their offering semster
                         student.studyPlan.append("(\'{0}\',\'{1}\')".format(courseCode,semester))  #Appends the CourseCode and semster to the existing list of StudyPlan
                     else : print('Error check the course code and available semester') ## Error statement
-                return print('The change has been added to the student study plan. {}'.format(student.studyPlan))
+                return print(student.studyPlan)
 
 ## generate a student plan for a student of minimum length Sai
     def studyPlan(studentID): # fucntion to genrate a studyplan
@@ -227,7 +222,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
         for i in students: # seachers for the student and prints it
             if i.studentID == studentID:
                 student = i 
-                return print('The student study plan is below:\n {}'.format(student.studyPlan))
+                return print(student.studyPlan)
     
 
 ## for a particular course offering display a sorted list of students Sai
@@ -251,39 +246,16 @@ def adminmenu(courses,programs,semesters,students,passwords):
 
             # for i in range(len(s.accedemicHist)):
     def checkGrad(studentID):
+        ini = input('courseID: ')
         temp = []
-        code = []
-        cond = []
-        final = []
-        credit = 12
-        for c in courses:
-            code.append(c.code)
-        
-
-        
         for s in students:
-            if s.studentID == studentID:
-                for i in s.accedemicHist:
-                
-                    # if code in i and not 'NN' in i:
-                        i = eval(i)
-                        temp.append(i)
+            for i in s.accedemicHist:
+                if ini in i:
+                    temp.append(i)
 
             # temp.append(item for item in s.accedemicHist if ini in item)
-        for t in temp:
-            for z in code:
-                if t[0] == z:
-                     cond.append(t)
-        for f in cond:
-            if 'NN' not in cond:
-                final.append(f)
-        grad = 230- (len(final) * credit)
-        if grad == 0:
-            return print('Sudent can graduate')
-        else :
-            return print('Student still needs {} credits points to graduate'.format(grad))
 
-        
+        print(temp)
             
                 
 
@@ -321,7 +293,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
     ## 3 seperate things for add remove ammend ... 
     def helpadmin():
         # print('If you would like to\n\n 1. Add student\n 2. RemoveAdd/Remove/Amendacourse - enter 2 \nAdd/Remove/Amendaprogram - enter 3 \nAdd/Remove/Amendasemester - enter 4 \nQuery student information including academic history and current enrolment - enter 5 \nAllow manual amendment of the study plan for a student - enter 6\nValidate a students study plan - enter 7 \nGenerate a student plan for a student of minimum length - enter 8 \nFor a particular course offering display a sorted list of students - enter 9 \nReturn to the main menu - enter exit')
-        print(' 1.Add student \n 2.Remove student\n 3.Amend student\n 4.Add course\n 5.Remove course\n 6.Amend course\n 7.Add program\n 8.Remove Program\n 9.Amend Program\n 10.Add Semester\n 11.Remove Semester\n 12.Amend Semester\n 13.Query student information/Academic history\n 14.Genrate Study plan for a student\n 15.Amend study plan for a student\n 16.Display a sorted list of students achievements in a course\n 17.Check Graduation status Enter search to search for a course\n Enter quit to exit\n\n Enter the number: ')
+        print(' 1.Add student \n 2.Remove student\n 3.Amend student\n 4.Add course\n 5.Remove course\n 6.Amend course\n 7.Add program\n 8.Remove Program\n 9.Amend Program\n 10.Add Semester\n 11.Remove Semester\n 12.Amend Semester\n 13.Query student information/Academic history\n 14.Genrate Study plan for a student\n 15.Amend study plan for a student\n 16.Display a sorted list of students achievements in a course\n Enter search to search for a course\n Enter quit to exit\n\n Enter the number: ')
 
     success = login(passwords)
     if success:
