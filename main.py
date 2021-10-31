@@ -1,3 +1,7 @@
+#start 8/10/21
+#last updated: 31/10/21
+#Members: James Hijazin:s3895829 , Peter Fulton:s3896790, Quinn How:s3899122, Saicharan Kannan:s3814854. 
+#The program is intended to allow students to enrol and observe their  programs and courses as well as allow administative staff to alter courses and student information.
 import csv
 from AdminMenu import adminmenu
 
@@ -93,7 +97,7 @@ def printclassessearch(courses, title = None, code= None):
     else: print('something went wrong with your search ')
 # a help function to display the actions a user can take
 def helpmain():
-    print('If you would like to\n1.Access 2 the menu\n2.Access the admin menu\nquit.Exit the program')
+    print('If you would like to\n1.Access the menu\n2.Access the admin menu\nquit.Exit the program')
 
 print('Welcome')
 helpmain()# shows an initial list of actions that can be taken
