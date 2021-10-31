@@ -204,10 +204,10 @@ def adminmenu(courses,programs,semesters,students,passwords):
 ## generate a student plan for a student of minimum length Sai
     def studyPlan(studentID): # fucntion to genrate a studyplan
 
-        for i in students:
+        for i in students: # seachers for the student and prints it
             if i.studentID == studentID:
-            
-                return print(i.studyPlan)
+                student = i 
+                return print(student.studyPlan)
     
 
 ## for a particular course offering display a sorted list of students Sai
@@ -217,9 +217,24 @@ def adminmenu(courses,programs,semesters,students,passwords):
 ## also need to fix the academic spelling
 
     def achivementList(courseID,sem): # function sorted list
-        for i in students:
-            if i.accedemicHist == courseID and i.accemicHist == sem:
-                return print(i.accedemicHist)
+        # fucction should search into the acedemic history of all the students who did the course, sorts them and prints them.
+        temp = []
+        for s in students:
+            temp.append(s.accedemicHist)
+            # cond = [item for item in s.accedemicHist if courseID in item]
+        temp.sort()
+        print(temp) # could imporve this function but does not work how its supposed to work. -sai
+            
+
+
+            # for i in range(len(s.accedemicHist)):
+    def checkGrad(studentID):
+        ini = input('courseID: ')
+        for s in students:
+           temp = [item for item in s.accedemicHist if ini in item]
+        print(temp)
+            
+                
 
 
 ## Exit Peter
@@ -315,6 +330,10 @@ def adminmenu(courses,programs,semesters,students,passwords):
             courseID = input('Enter courseID: ')
             sem = input('enter semester: ')
             achivementList(courseID,sem)
+        elif inp == '17':
+            studentID = input('Enter studentID: ')
+            checkGrad(studentID)
+
         ## search for certain course
         elif inp.lower() == 'search': printclassessearch(courses,input('To use the search function you need two imputs title and code if you dont want to search by title or code just press enter for the prompts\nIf you would like to display all courses press enter twice\nenter the title you would like to search for or else press enter to not search with title\n'),input('Enter the course code you would like to search for or else press enter to not search with code\n'))
         else: print('Imput error try again\nTry entering help to see the comands')
