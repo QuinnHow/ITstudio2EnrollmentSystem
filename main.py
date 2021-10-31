@@ -53,7 +53,7 @@ studentFile = open('student.csv')
 studentReader = csv.reader(studentFile, delimiter=' ')
 for row in studentReader:
     # print(row)
-    student = Student(row[0],row[1],row[2],row[3],row[4].split(),row[5],row[6])
+    student = Student(row[0],row[1],row[2],row[3],row[4].split(),row[5].split(),row[6].split())
     
     students.append(student)
     # print(student)
