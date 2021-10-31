@@ -53,7 +53,13 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writeFile.write(newStudent) ## write new student to csv
 
 ## Add/Remove/Amendacourse(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g.,semester offerings.)James
-    def addCourse(course):
+    def addCourse(courseCode):
+        cCode = courseCode
+        title = input('Enter title: ')
+        credit = input('Enter credit score: ')
+        preReq = input('Enter prerequisites: ' )
+        avalSem = input('Enter available semester: ')
+        course = cCode + ' ' + title + ' ' + credit + ' ' + preReq + ' ' + avalSem
         with open('course.csv', 'a') as writeFile: ## open file for writing
             writeFile.write(course) ## write course to csv file
 
@@ -87,7 +93,12 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writeFile.write(newCourse) ## write new course to csv
 
 ## Add/Remove/Amendaprogram(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students.)James
-    def addProgram(program):
+    def addProgram(programCode):
+        pCode = programCode
+        credit = input('Enter credit score: ')
+        core = input('Enter core subjects: ' )
+        elective = input('Enter electives: ')
+        program = pCode + ' ' + credit + ' ' + core + ' ' + elective
         with open('program.csv', 'a') as writeFile: ## open file for writing
             writeFile.write(program) ## write program to csv file
 
@@ -121,7 +132,10 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writeFile.write(newProgram) ## write new program to csv
 
 ## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)James
-    def addSemester(semester):
+    def addSemester(semesterID):
+        semID = semesterID
+        cOfferings = input('Enter course offerings: ')
+        semester = semID + ' ' + cOfferings
         with open('semester.csv', 'a') as writeFile: ## open file for writing
             writeFile.write(semester) ## write semester to csv file
 
@@ -286,19 +300,22 @@ def adminmenu(courses,programs,semesters,students,passwords):
         elif inp == '3':
             amendStudent()
         elif inp == '4':
-            addCourse()
+            courseCode = input('Enter course code: ')
+            addCourse(courseCode)
         elif inp == '5':
             removeCourse()
         elif inp == '6':
             amendCourse()
         elif inp == '7':
-            addProgram
+            programCode = input('Enter program code: ')
+            addProgram(programCode)
         elif inp == '8':
             removeProgram()
         elif inp == '9':
             amendProgram()
         elif inp == '10':
-            addSemester()
+            semesterID = input('Enter semester ID:')
+            addSemester(semesterID)
         elif inp == '11':
             removeSemester()
         elif inp == '12':
