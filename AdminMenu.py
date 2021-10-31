@@ -177,41 +177,19 @@ def adminmenu(courses,programs,semesters,students,passwords):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # Allow manual amendment of the study plan for a student Sai
     def addStudyPlan(studentID):
         for i in students:
             if i.studentID == studentID:
+                student = i
                 courseCode = input('Enter course code: ')
-                semester = input('Enter Semester: ')
-                year = input('Enter year: ')
+                semester = input('Enter Semester and the year eg: s1,2021: ')
                 lines = []
-                # with open('semester.csv', 'r') as readFile:
-                #     reader = csv.reader(readFile)
-                # for row in reader:
-                #     lines.append(row)
-                # for field in row:
-                #     if field == studentID:
-                #         lines.remove(row)
-                # i.studyPlan.append(courseCode,semester,year)
-                with open('semester.csv', 'w') as writeFile:
-                    writeFile.write(courseCode,semester,year)
-                return print(i.studyPlan)
-           
-    ## still looking into this
-    
-
-
+                for i in courses:
+                    if i.code == courseCode and i.avalSem == semester:
+                        student.studyPlan.append("(\'{0}\',\'{1}\')".format(courseCode,semester))
+                    else : print('Error check the course code and available semester')
+                return print(student.studyPlan)
 ## Validate a students study plan Sai
 
 
@@ -290,7 +268,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
         inp = input()
         ## returning to the base menu 
         if inp.lower() == 'help':
-            helpadmin
+            helpadmin()
         elif inp.lower() == 'quit':
             break
         elif inp == '1':
