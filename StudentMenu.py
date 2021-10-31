@@ -207,6 +207,24 @@ def studentMenu (courses,programs,semesters,students,passwords):
 
 
     ## Exit Peter
+    def printclasses(courses):
+        for i in courses: print(i)
+    def printclassessearch(courses, title = None, code= None):
+        if (title == '' )and (code == ''):
+            printclasses(courses)
+        elif  title == '':
+            for i in courses:
+                if i.code == code : print(i)
+        elif code == '': 
+            for i in courses:
+                if i.title == title : print(i)
+        elif code != '' and title != '':
+            for i in courses:
+               if i.title == title and i.code == code:
+                    print(i)
+
+        else: print('something went wrong with your search ')
+
     def helpstudent():
         print('If you would like to\n\nAccess your accedemic history - enter academic history\nCheck your course or program information - enter course or program information\nEnrol - enter enrol\n Un enrol - enter un enrol\nReturn to the main menu - enter exit')
 
