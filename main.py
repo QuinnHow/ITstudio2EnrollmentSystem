@@ -7,7 +7,7 @@ from Semester import Semester
 from Student import Student
 from password import Password
 from StudentMenu import studentMenu
-
+#creating the lists to store the data retrieved from the csv
 courses = []
 programs = []
 semesters = []
@@ -17,6 +17,7 @@ passwords =[]
 
 courseFile = open('course.csv')
 courseReader = csv.reader(courseFile, delimiter=' ')
+# for each row in the csv it is creating a course class from the data within that row and storing the cours created into the list courses
 for row in courseReader:
     # print(row)
     course = Course(row[0], row[1], row[2], row[3], row[4])
@@ -24,7 +25,7 @@ for row in courseReader:
     courses.append(course)
     # print(course)
 
-
+# the process above is completed for all the classes course, program, semester, studemt, and passwords 
 
 
 
@@ -79,7 +80,9 @@ def stuSearch(ID):
             return i
         else:
             return None
-#Student.getStudent('s3653411')
+
+# printclasses uses the print method defined in course constructor
+# the print classsearch function will take the imput from the uesr and print the courses that match the imputs. if nothing is imput it defults to printing all courses
 def printclasses(courses):
     for i in courses: print(i)
 def printclassessearch(courses, title = None, code= None):
@@ -97,11 +100,12 @@ def printclassessearch(courses, title = None, code= None):
                 print(i)
 
     else: print('something went wrong with your search ')
+# a help function to display the actions a user can take
 def helpmain():
     print('If you would like to\n1.Access the student menu\n2.Access the admin menu\nquit.Exit the program')
 
 print('Welcome')
-helpmain()
+helpmain()# shows an initial list of actions that can be taken
 
 finish = True
 while finish:
@@ -114,9 +118,9 @@ while finish:
     elif inp.lower() == '2':
         adminmenu(courses,programs,semesters,students,passwords)
     elif inp.lower() == 'help': helpmain()
-    #elif inp.lower() == 'classes': printclasses(courses)
+
     elif inp.lower() == 'search': printclassessearch(courses,input('To use the search function you need two imputs title and code if you dont want to search by title or code just press enter for the prompts\nIf you would like to display all courses press enter twice\nenter the title you would like to search for or else press enter to not search with title\n'),input('Enter the course code you would like to search for or else press enter to not search with code\n'))
 
     else: print('Imput error try again\nTry entering help to see the comands')
-## save all files or save files when finished editing them?
+# ends the program nolonger loops printing this message and then finishes running
 print ('exiting program') 
