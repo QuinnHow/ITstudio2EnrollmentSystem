@@ -242,23 +242,23 @@ def adminmenu(courses,programs,semesters,students,passwords):
 
 
 ## Exit Peter
-        def printclasses(courses):
-            for i in courses: print(i)
-        def printclassessearch(courses, title = None, code= None):
-            if (title == '' )and (code == ''):
-                printclasses(courses)
-            elif  title == '':
-                for i in courses:
-                    if i.code == code : print(i)
-            elif code == '': 
-                for i in courses:
-                    if i.title == title : print(i)
-            elif code != '' and title != '':
-                for i in courses:
-                    if i.title == title and i.code == code:
-                        print(i)
+    def printclasses(courses):
+        for i in courses: print(i)
+    def printclassessearch(courses, title = None, code= None):
+        if (title == '' )and (code == ''):
+            printclasses(courses)
+        elif  title == '':
+            for i in courses:
+                if i.code == code : print(i)
+        elif code == '': 
+            for i in courses:
+                if i.title == title : print(i)
+        elif code != '' and title != '':
+            for i in courses:
+                if i.title == title and i.code == code:
+                    print(i)
 
-            else: print('something went wrong with your search ')
+        else: print('something went wrong with your search ')
             
  ######################33 need to change to admin passwords when pasword section is added
     def login(passwords):
@@ -273,7 +273,8 @@ def adminmenu(courses,programs,semesters,students,passwords):
         return False
     ## 3 seperate things for add remove ammend ... 
     def helpadmin():
-        print('If you would like to\n\nAdd/Remove/Amendastudent - enter 1 \nAdd/Remove/Amendacourse - enter 2 \nAdd/Remove/Amendaprogram - enter 3 \nAdd/Remove/Amendasemester - enter 4 \nQuery student information including academic history and current enrolment - enter 5 \nAllow manual amendment of the study plan for a student - enter 6\nValidate a students study plan - enter 7 \nGenerate a student plan for a student of minimum length - enter 8 \nFor a particular course offering display a sorted list of students - enter 9 \nReturn to the main menu - enter exit')
+        # print('If you would like to\n\n 1. Add student\n 2. RemoveAdd/Remove/Amendacourse - enter 2 \nAdd/Remove/Amendaprogram - enter 3 \nAdd/Remove/Amendasemester - enter 4 \nQuery student information including academic history and current enrolment - enter 5 \nAllow manual amendment of the study plan for a student - enter 6\nValidate a students study plan - enter 7 \nGenerate a student plan for a student of minimum length - enter 8 \nFor a particular course offering display a sorted list of students - enter 9 \nReturn to the main menu - enter exit')
+        print(' 1.Add student \n 2.Remove student\n 3.Amend student\n 4.Add course\n 5.Remove course\n 6.Amend course\n 7.Add program\n 8.Remove Program\n 9.Amend Program\n 10.Add Semester\n 11.Remove Semester\n 12.Amend Semester\n 13.Query student information/Academic history\n 14.Genrate Study plan for a student\n 15.Amend study plan for a student\n 16.Validate a study pln for a student\n 17.Display a sorted list of students achievements in a course\n Enter quit to exit\n\n Enter the number: ')
 
     success = login(passwords)
     if success:
@@ -292,29 +293,48 @@ def adminmenu(courses,programs,semesters,students,passwords):
     while finish:
         inp = input()
         ## returning to the base menu 
-        if inp.lower() == 'help': helpadmin()
-        elif inp.lower() == 'exit': break
-        elif inp.lower() == 'study':
+        if inp.lower() == 'help':
+            helpadmin
+        elif inp.lower() == 'quit':
+            break
+        elif inp == '1':
+            addStudent()
+        elif inp == '2':
+            removeStudent()
+        elif inp == '3':
+            amendStudent()
+        elif inp == '4':
+            addCourse()
+        elif inp == '5':
+            removeCourse()
+        elif inp == '6':
+            amendCourse()
+        elif inp == '7':
+            addProgram
+        elif inp == '8':
+            removeProgram()
+        elif inp == '9':
+            amendProgram()
+        elif inp == '10':
+            addSemester()
+        elif inp == '11':
+            removeSemester()
+        elif inp == '12':
+            amendSemester()
+        elif inp == '13':
+            pass
+        elif inp == '14':
             studentID = input('Enter studentID: ')
             studyPlan(studentID)
-        elif inp.lower() == '6':
+        elif inp == '15':
             studentID = input('Enter studentID: ')
             addStudyPlan(studentID)
-        elif inp.lower() == 'view achi':
+        elif inp == '16':
+            pass
+        elif inp == '17':
             courseID = input('Enter courseID: ')
             sem = input('enter semester: ')
             achivementList(courseID,sem)
-        ## we will fix these soon
-
-        ## these need to be changed to the function calls for the admin menu
-        elif inp.lower() == '5':
-            stuQuery(students,input('Please enter the desired student\'s student ID: '))
-        elif inp.lower() == 'course or program information':
-            pass #course or program information function
-        elif inp.lower() == 'enrol':
-            pass #Enrol function
-        elif inp.lower() == 'un enrol':
-            pass #Un enrol function
-
+        elif inp.lower() == 'search': printclassessearch(courses,input('To use the search function you need two imputs title and code if you dont want to search by title or code just press enter for the prompts\nIf you would like to display all courses press enter twice\nenter the title you would like to search for or else press enter to not search with title\n'),input('Enter the course code you would like to search for or else press enter to not search with code\n'))
         else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 
