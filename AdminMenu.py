@@ -10,146 +10,141 @@ def adminmenu(courses,programs,semesters,students,passwords):
     
 ## Add/Remove/Amendastudent(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., program, semester offerings.)James
     def addStudent(student):
-        with open('student.csv', 'w') as writeFile:
-            writeFile.write(student)
+        with open('student.csv', 'w') as writeFile: ## open file for writing
+            writeFile.write(student) ## write student to csv file
             
 
     def removeStudent(student):
-        ## remove student from row, remove student from program, drop student in course offering,
-        ## remove student from student.csv
         lines = []
-        with open('student.csv', 'r') as readFile:
-            reader = csv.reader(readFile)
+        with open('student.csv', 'r') as readFile: ## open file for reading
+            reader = csv.reader(readFile) ## read file
             for row in reader:
-                lines.append(row)
+                lines.append(row) ## for every row in csv file, add to list
                 for field in row:
-                    if field == student:
-                        lines.remove(row)
+                    if field == student: ## if field contains student we want to remove
+                        lines.remove(row) ## remove row containing student
 
-        with open('student.csv', 'w') as writeFile:
+        with open('student.csv', 'w') as writeFile: ## open file for writing
             writer = csv.writer(writeFile)
-            writer.writerows(lines) 
+            writer.writerows(lines) ## write data from list back to csv
     
 
     def amendStudent(student, newStudent):
         lines = []
-        with open('student.csv', 'r') as readFile:
-            reader = csv.reader(readFile)
+        with open('student.csv', 'r') as readFile: ## open file for reading
+            reader = csv.reader(readFile) ## read file
             for row in reader:
-                lines.append(row)
+                lines.append(row) ## for every row in csv file, add to list
                 for field in row:
-                    if field == student:
-                        lines.remove(row)
+                    if field == student: ## if field contains student we want to remove
+                        lines.remove(row) ## remove row containing student
 
-        with open('student.csv', 'w') as writeFile:
+        with open('student.csv', 'w') as writeFile: ## open file for writing
             writer = csv.writer(writeFile)
-            writer.writerows(lines) 
-            writeFile.write(newStudent)
+            writer.writerows(lines) ## write data from list back to csv
+            writeFile.write(newStudent) ## write new student to csv
 
 ## Add/Remove/Amendacourse(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g.,semester offerings.)James
     def addCourse(course):
-        with open('course.csv', 'w') as writeFile:
-            writeFile.write(course)
+        with open('course.csv', 'w') as writeFile: ## open file for writing
+            writeFile.write(course) ## write course to csv file
 
     def removeCourse(course):
-        ## remove course from course.csv
         lines = []
-        with open('course.csv', 'r') as readFile:
-            reader = csv.reader(readFile)
+        with open('course.csv', 'r') as readFile: ## open file for reading
+            reader = csv.reader(readFile) ## read file
             for row in reader:
-                lines.append(row)
+                lines.append(row) ## for every row in csv file, add to list
                 for field in row:
-                    if field == course:
-                        lines.remove(row)
+                    if field == course: ## if field contains course we want to remove
+                        lines.remove(row) ## remove row containing course
 
-        with open('course.csv', 'w') as writeFile:
+        with open('course.csv', 'w') as writeFile: ## open file for writing
             writer = csv.writer(writeFile)
-            writer.writerows(lines)
+            writer.writerows(lines) ## write data from list back to csv
 
     def amendCourse(course, newCourse):
         lines = []
-        with open('course.csv', 'r') as readFile:
-            reader = csv.reader(readFile)
+        with open('course.csv', 'r') as readFile: ## open file for reading
+            reader = csv.reader(readFile) ## read file
             for row in reader:
-                lines.append(row)
+                lines.append(row) ## for every row in csv file, add to list
                 for field in row:
-                    if field == course:
-                        lines.remove(row)
+                    if field == course: ## if field contains course we want to remove
+                        lines.remove(row) ## remove row containing course
 
-        with open('course.csv', 'w') as writeFile:
+        with open('course.csv', 'w') as writeFile: ## open file for writing
             writer = csv.writer(writeFile)
-            writer.writerows(lines) 
-            writeFile.write(newCourse)
+            writer.writerows(lines) ## write data from list back to csv
+            writeFile.write(newCourse) ## write new course to csv
 
 ## Add/Remove/Amendaprogram(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students.)James
     def addProgram(program):
-        with open('program.csv', 'w') as writeFile:
-            writeFile.write(program)
+        with open('program.csv', 'w') as writeFile: ## open file for writing
+            writeFile.write(program) ## write program to csv file
 
     def removeProgram(program):
-        ## remove program from program.csv
         lines = []
-        with open('program.csv', 'r') as readFile:
-            reader = csv.reader(readFile)
+        with open('program.csv', 'r') as readFile: ## open file for reading
+            reader = csv.reader(readFile) ## read file
             for row in reader:
-                lines.append(row)
+                lines.append(row) ## for every row in csv file, add to list
                 for field in row:
-                    if field == program:
-                        lines.remove(row)
+                    if field == program: ## if field contains program we want to remove
+                        lines.remove(row) ## remove row containing program
 
-        with open('program.csv', 'w') as writeFile:
+        with open('program.csv', 'w') as writeFile: ## open file for writing
             writer = csv.writer(writeFile)
-            writer.writerows(lines)
+            writer.writerows(lines) ## write data from list back to csv
 
     def amendProgram(program, newProgram):
         lines = []
-        with open('program.csv', 'r') as readFile:
-            reader = csv.reader(readFile)
+        with open('program.csv', 'r') as readFile: ## open file for reading
+            reader = csv.reader(readFile) ## read file
             for row in reader:
-                lines.append(row)
+                lines.append(row) ## for every row in csv file, add to list
                 for field in row:
-                    if field == program:
-                        lines.remove(row)
+                    if field == program: ## if field contains program we want to remove
+                        lines.remove(row) ## remove row containing program
 
-        with open('program.csv', 'w') as writeFile:
+        with open('program.csv', 'w') as writeFile: ## open file for writing
             writer = csv.writer(writeFile)
-            writer.writerows(lines)
-            writeFile.write(newProgram)
+            writer.writerows(lines) ## write data from list back to csv
+            writeFile.write(newProgram) ## write new program to csv
 
 ## Add/Remove/Amendasemester(Youwillalsoneedtoconsidertheeffectonotherclassinstancese.g., students)James
     def addSemester(semester):
-        with open('semester.csv', 'w') as writeFile:
-            writeFile.write(semester)
+        with open('semester.csv', 'w') as writeFile: ## open file for writing
+            writeFile.write(semester) ## write semester to csv file
 
     def removeSemester(semester):
-        ## remove program from semester.csv
         lines = []
-        with open('semester.csv', 'r') as readFile:
-            reader = csv.reader(readFile)
+        with open('semester.csv', 'r') as readFile: ## open file for reading
+            reader = csv.reader(readFile) ## read file
             for row in reader:
-                lines.append(row)
+                lines.append(row) ## for every row in csv file, add to list
                 for field in row:
-                    if field == semester:
-                        lines.remove(row)
+                    if field == semester: ## if field contains semester we want to remove
+                        lines.remove(row) ## remove row containing semester
 
-        with open('semester.csv', 'w') as writeFile:
+        with open('semester.csv', 'w') as writeFile: ## open file for writing
             writer = csv.writer(writeFile)
-            writer.writerows(lines)
+            writer.writerows(lines) ## write data from list back to csv
             
     def amendSemester(semester, newSemester):
         lines = []
-        with open('semester.csv', 'r') as readFile:
-            reader = csv.reader(readFile)
+        with open('semester.csv', 'r') as readFile: ## open file for reading
+            reader = csv.reader(readFile) ## read file
             for row in reader:
-                lines.append(row)
+                lines.append(row) ## for every row in csv file, add to list
                 for field in row:
-                    if field == semester:
-                        lines.remove(row)
+                    if field == semester: ## if field contains semester we want to remove
+                        lines.remove(row) ## remove row containing semester
 
-        with open('semester.csv', 'w') as writeFile:
+        with open('semester.csv', 'w') as writeFile: ## open file for writing
             writer = csv.writer(writeFile)
-            writer.writerows(lines)
-            writeFile.write(newSemester)
+            writer.writerows(lines) ## write data from list back to csv
+            writeFile.write(newSemester) ## write new semester to csv
 
 ## Query student information including academic history and current enrolment Quinn
     def stuQuery(students,search):
