@@ -148,12 +148,12 @@ def adminmenu(courses,programs,semesters,students,passwords):
             writeFile.write("\n")
             writeFile.write(semester) ## write semester to csv file
 
-    def removeSemester(semester):
+    def removeSemester(semesterOffer):
         lines = []
         with open('semester.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile, delimiter=' ') ## read file
+            reader = csv.reader(readFile, delimiter = ' ') ## read file
             for row in reader:
-                if row[0] != programCode: ## if row doesn't contain programCode we don't want
+                if row[1] != semesterOffer: ## if row doesn't contain semesterOffer we don't want
                     lines.append(row) ## add to list
 
         with open('semester.csv', 'w') as writeFile: ## open file for writing
@@ -163,12 +163,10 @@ def adminmenu(courses,programs,semesters,students,passwords):
     def amendSemester(semesterOffer, newSemesterOffer):
         lines = []
         with open('semester.csv', 'r') as readFile: ## open file for reading
-            reader = csv.reader(readFile) ## read file
+            reader = csv.reader(readFile, delimiter = ' ') ## read file
             for row in reader:
-                lines.append(row) ## for every row in csv file, add to list
-                for field in row:
-                    if field == semesterOffer: ## if field contains semester we want to remove
-                        lines.remove(row) ## remove row containing semester
+                if row[1] != semesterOffer: ## if row doesn't contain semesterOffer we don't want
+                    lines.append(row) ## add to list
         cOfferings = newSemesterOffer
         semID = input('Enter semester ID: ')
         newSemester = semID + ',' + cOfferings
