@@ -98,7 +98,7 @@ def printclassessearch(courses, title = None, code= None):
 
     else: print('something went wrong with your search ')
 def helpmain():
-    print('If you would like to\nAccess the student menu - enter 1\nAccess the admin menu - enter 2\nExit the program - enter quit')
+    print('If you would like to\n1.Access the student menu\n2.Access the admin menu\nquit.Exit the program')
 
 print('Welcome')
 helpmain()

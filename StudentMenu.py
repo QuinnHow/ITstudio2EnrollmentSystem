@@ -37,6 +37,14 @@ def studentMenu (courses,programs,semesters,students,passwords):
                         
             print('In {0} a grade of {1} was acheived'.format(x[0], x[1]))
             i+=1
+        print('Student current enrollment:')
+        i = 0
+        while i < len(stu.curEnoll):
+                
+                x = eval(stu.curEnoll[i])
+                            
+                print('The course {0} is being taken in {1}'.format(x[0], x[1]))
+                i+=1
             
         
     
@@ -75,10 +83,10 @@ def studentMenu (courses,programs,semesters,students,passwords):
         req = req.lower()
         meetsReq = True
         if req != 'none':
+            meetsReq = False
             for i in stu.accedemicHist:
-                meetsReq = False
                 i = eval(i)
-                if i == req:
+                if i[0] == req:
                     meetsReq = True
                     break
         if meetsReq == True:
@@ -226,7 +234,7 @@ def studentMenu (courses,programs,semesters,students,passwords):
         else: print('something went wrong with your search ')
 
     def helpstudent():
-        print('If you would like to\n\nAccess your accedemic history - enter 1\nCheck your course or program information - 2\nEnrol - enter 3\n Un enrol - enter 4\nSee the easiest class - enter 5\nSee the hardest class - enter 6\nReturn to the main menu - enter exit')
+        print('If you would like to\n\n1.Access your accedemic history \n2.Check your course or program information\n3.Enrol in a course\n4.Un enrol in a course \n5.See the easiest class\n6.See the hardest class\nexit.Return to the main menu')
 
     success = login(passwords)
     if success:
@@ -248,7 +256,9 @@ def studentMenu (courses,programs,semesters,students,passwords):
         inp = input()
         ## returning to the base menu 
         if inp.lower() == 'help': helpstudent()
-        elif inp.lower() == 'exit': break
+        elif inp.lower() == 'exit':
+            
+            break
         elif inp.lower() == '1':
             ## work on this!
             displayAc(user) 
