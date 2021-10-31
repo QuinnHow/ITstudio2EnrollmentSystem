@@ -105,7 +105,101 @@ def studentMenu (courses,programs,semesters,students,passwords):
             print('No removal as no such course currently enrolled')
 
 
+    def easy():
+        classList = []
+        
+        for i in courses:
+            overallGrade = 0
+            numStu = 0
+            for j in students:
+                for y in j.accedemicHist:
+                    y = eval(y)
+                    if y[0] == i.code:
+                        numStu += 1
+                        if y[1] == 'HD':
+                            overallGrade += 4
+                        if y[1] == 'DI':
+                            overallGrade += 3
+                        if y[1] == 'CR':
+                            overallGrade += 2
+                        if y[1] == 'PA':
+                            overallGrade += 1
+                        if y[1] == 'NN':
+                            overallGrade += 0
+            classList.append('(\'{0}\',{1},{2})'.format(i.title,overallGrade,numStu))
+            
+        easiest = classList[0]
+        for i in classList:
+            ease = eval(easiest)
+            i = eval(i)
+            if ease[1]/ease[2] < int(i[1])/int(i[2]):
+                easiest = i
+        
+        easiest = eval(easiest)
+        avMark = int(easiest[1])/int(easiest[2])
+        if avMark == 4:
+            string = 'The easiest class is {0} with an average grade of HD'.format(easiest[0])
+        if avMark == 3:
+            string = 'The easiest class is {0} with an average grade of DI'.format(easiest[0])
+        if avMark == 2:
+            string = 'The easiest class is {0} with an average grade of CR'.format(easiest[0])
+        if avMark == 1:
+            string = 'The easiest class is {0} with an average grade of PA'.format(easiest[0])
+        if avMark == 0:
+            string = 'The easiest class is {0} with an average grade of NN'.format(easiest[0])
+        print(string)
     
+    
+    
+    def hard():
+        classList = []
+        
+        for i in courses:
+            overallGrade = 0
+            numStu = 0
+            for j in students:
+                for y in j.accedemicHist:
+                    y = eval(y)
+                    if y[0] == i.code:
+                        numStu += 1
+                        if y[1] == 'HD':
+                            overallGrade += 4
+                        if y[1] == 'DI':
+                            overallGrade += 3
+                        if y[1] == 'CR':
+                            overallGrade += 2
+                        if y[1] == 'PA':
+                            overallGrade += 1
+                        if y[1] == 'NN':
+                            overallGrade += 0
+            classList.append('(\'{0}\',{1},{2})'.format(i.title,overallGrade,numStu))
+            
+        hardest = classList[0]
+        for i in classList:
+            har = eval(hardest)
+            i = eval(i)
+            if har[1]/har[2] > int(i[1])/int(i[2]):
+                hardest = i
+        
+        
+        avMark = int(hardest[1])/int(hardest[2])
+        if avMark == 4:
+            string = 'The hardest class is {0} with an average grade of HD'.format(hardest[0])
+        if avMark == 3:
+            string = 'The hardest class is {0} with an average grade of DI'.format(hardest[0])
+        if avMark == 2:
+            string = 'The hardest class is {0} with an average grade of CR'.format(hardest[0])
+        if avMark == 1:
+            string = 'The hardest class is {0} with an average grade of PA'.format(hardest[0])
+        if avMark == 0:
+            string = 'The hardest class is {0} with an average grade of NN'.format(hardest[0])
+        print(string)
+   
+
+
+                
+
+
 
 
 
@@ -146,5 +240,9 @@ def studentMenu (courses,programs,semesters,students,passwords):
             enrol(user,input('Please enter the course code:'),input('Please enter the semester and year in the format of SS,YYYY:'),input('Please enter the code of any preRequisite classes if none write none:'))
         elif inp.lower() == 'un enrol':
             unEnrol(user,input('Please enter the code of the course you wish to unenroll from:'))
+        elif inp.lower() == 'easiest':
+            easy()
+        elif inp.lower() == 'hardest':
+            hard()
         else: print('Imput error try again\nTry entering help to see the comands')
     print ('returning to main meu') 
