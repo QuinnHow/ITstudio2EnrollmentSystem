@@ -256,9 +256,7 @@ def studentMenu (courses,programs,semesters,students,passwords):
         inp = input()
         ## returning to the base menu 
         if inp.lower() == 'help': helpstudent()
-        elif inp.lower() == 'exit':
-            
-            break
+        elif inp.lower() == 'exit': break
         elif inp.lower() == '1':
             ## work on this!
             displayAc(user) 
