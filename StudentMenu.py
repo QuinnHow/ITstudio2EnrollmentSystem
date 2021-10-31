@@ -11,13 +11,13 @@ def studentMenu (courses,programs,semesters,students,passwords):
     #import Semester
 
     ## login Peter
+    # usees the passwords list to see if the entered username and password are valid befroe proceeding to the menu or else yu are returned to the main menu
     def login(passwords):
         print('Please sign in')
         username = input('Enter your student number\n')
         pword = input('Enter your password\n')
         for i in passwords:
-            if i.admin == '0' and i.username == username:
-                ### we need a pasword for each student!!!!!!!!!!!
+            if i.admin == '0' and i.username == username: # the 0 in i.admin is to only search the student logins and not the admin ones 
                 if pword == i.password:
                     global userID
                     userID = username
@@ -225,6 +225,7 @@ def studentMenu (courses,programs,semesters,students,passwords):
 
 
     ## Exit Peter
+    ## see main for what the two below functions do
     def printclasses(courses):
         for i in courses: print(i)
     def printclassessearch(courses, title = None, code= None):
@@ -242,11 +243,11 @@ def studentMenu (courses,programs,semesters,students,passwords):
                     print(i)
 
         else: print('something went wrong with your search ')
-
+    # a help function similar to the one in main displaying possible actions 
     def helpstudent():
         print('If you would like to\n\n1.Access your accedemic history \n2.Check your course or program information\n3.Enrol in a course\n4.Un enrol in a course \n5.See the easiest class\n6.See the hardest class\nexit.Return to the main menu')
 
-    success = login(passwords)
+    success = login(passwords)# if a successful login it starts the menu
     if success:
         finish = True
         print('\nwelcome to the student menu\n')
@@ -262,9 +263,10 @@ def studentMenu (courses,programs,semesters,students,passwords):
         #################
         
     
-    while finish:
+    while finish: # wont start without finish being True which is determined by the login
         inp = input()
         ## returning to the base menu 
+        # similar to main the matching imputs trigger the functions
         if inp.lower() == 'help': helpstudent()
         elif inp.lower() == 'exit': break
         elif inp.lower() == '1':

@@ -236,7 +236,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
 
         else: print('something went wrong with your search ')
             
- ######################33 need to change to admin passwords when pasword section is added
+ ###################### similarly to the studentmenu login however the i.admin == '1' is used to only search administrator passwords and usernames 
     def login(passwords):
         print('Please sign in')
         username = input('Enter your username\n')
