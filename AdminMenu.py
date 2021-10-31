@@ -149,6 +149,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
 ## Query student information including academic history and current enrolment Quinn
     def stuQuery(students,search):
             stu = None
+            #checks that the search code is a student ID
             search = search.lower()
             for i in students:
                 if search == i.studentID:
@@ -157,6 +158,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
                 print('No matching student')
                 exit()
             i = 0
+            #prints the students info if it is a real student
             print('Student Name:',stu.name)
             print('Student ID:',stu.studentID)
             print('Student Academic History:')        

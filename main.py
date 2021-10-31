@@ -73,13 +73,7 @@ for i in courses:
         print(i.code)
 
 
-def stuSearch(ID):
-    for i in students:
-        if i.studentID == ID:
-            return i
-        else:
-            return None
-#Student.getStudent('s3653411')
+
 def printclasses(courses):
     for i in courses: print(i)
 def printclassessearch(courses, title = None, code= None):
