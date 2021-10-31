@@ -214,7 +214,7 @@ def adminmenu(courses,programs,semesters,students,passwords):
         return False
     ## 3 seperate things for add remove ammend ... 
     def helpadmin():
-        print('If you would like to\n\nAdd/Remove/Amendastudent - enter arast (the student)\nAdd/Remove/Amendacourse - enter arac (the course)\nAdd/Remove/Amendaprogram - enter arap (the program)\nAdd/Remove/Amendasemester - enter arase (the semester)\nQuery student information including academic history and current enrolment - enter query (the student)\nAllow manual amendment of the study plan for a student - enter ama(the student)\nValidate a students study plan - validate (the student)\nGenerate a student plan for a student of minimum length - enter generate study (the student)\nFor a particular course offering display a sorted list of students - enter display students (specific course offering)\nReturn to the main menu - enter exit')
+        print('If you would like to\n\nAdd/Remove/Amendastudent - enter 1 \nAdd/Remove/Amendacourse - enter 2 \nAdd/Remove/Amendaprogram - enter 3 \nAdd/Remove/Amendasemester - enter 4 \nQuery student information including academic history and current enrolment - enter 5 \nAllow manual amendment of the study plan for a student - enter 6\nValidate a students study plan - enter 7 \nGenerate a student plan for a student of minimum length - enter 8 \nFor a particular course offering display a sorted list of students - enter 9 \nReturn to the main menu - enter exit')
 
     success = login(passwords)
     if success:
@@ -234,27 +234,27 @@ def adminmenu(courses,programs,semesters,students,passwords):
         inp = input()
         ## returning to the base menu 
         if inp.lower() == 'help': helpadmin()
-        if inp.lower() == 'exit': break
-        if inp.lower() == 'study':
+        elif inp.lower() == 'exit': break
+        elif inp.lower() == 'study':
             studentID = input('Enter studentID: ')
             studyPlan(studentID)
-        if inp.lower() == 'add study':
+        elif inp.lower() == '6':
             studentID = input('Enter studentID: ')
             addStudyPlan(studentID)
-        if inp.lower() == 'view achi':
+        elif inp.lower() == 'view achi':
             courseID = input('Enter courseID: ')
             sem = input('enter semester: ')
             achivementList(courseID,sem)
         ## we will fix these soon
 
         ## these need to be changed to the function calls for the admin menu
-        if inp.lower() == 'academic history':
+        elif inp.lower() == 'academic history':
             pass #acc hsit function 
-        if inp.lower() == 'course or program information':
+        elif inp.lower() == 'course or program information':
             pass #course or program information function
-        if inp.lower() == 'enrol':
+        elif inp.lower() == 'enrol':
             pass #Enrol function
-        if inp.lower() == 'un enrol':
+        elif inp.lower() == 'un enrol':
             pass #Un enrol function
 
         else: print('Imput error try again\nTry entering help to see the comands')

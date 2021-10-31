@@ -98,7 +98,7 @@ def printclassessearch(courses, title = None, code= None):
 
     else: print('something went wrong with your search ')
 def helpmain():
-    print('If you would like to\nAccess the student menu - enter student\nAccess the admin menu - enter admin\nExit the program - enter quit')
+    print('If you would like to\nAccess the student menu - enter 1\nAccess the admin menu - enter 2\nExit the program - enter quit')
 
 print('Welcome')
 helpmain()
@@ -109,9 +109,9 @@ while finish:
     # a way to exit the program
     if inp.lower() == 'quit': break
     #put the different calls here e.g navigating through the menu...
-    elif inp.lower() == 'student':
+    elif inp.lower() == '1':
         studentMenu(courses,programs,semesters,students,passwords)
-    elif inp.lower() == 'admin':
+    elif inp.lower() == '2':
         adminmenu(courses,programs,semesters,students,passwords)
     elif inp.lower() == 'help': helpmain()
     elif inp.lower() == 'classes': printclasses(courses)
